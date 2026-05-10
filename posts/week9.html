@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 9: Lessons Learnt &amp; Reflection — Digital Manufacturing Blog</title>
+  <meta name="description" content="A final reflection on the entire module: multi-supplier variability, the power of simulation, what I would do differently, and the role of Industry 4.0." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🏭</text></svg>" />
+</head>
+<body>
+
+<div class="progress-bar" id="progress-bar"></div>
+
+<nav class="nav" role="navigation">
+  <div class="nav__inner">
+    <a class="nav__brand" href="../index.html">Digital<span>Mfg</span> Blog</a>
+    <div class="nav__links">
+      <a href="../index.html">Home</a>
+      <a href="week1.html" class="active">Posts</a>
+      <a href="../about.html">About</a>
+    </div>
+    <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="nav__mobile" id="nav-mobile">
+    <a href="../index.html">← Home / All Posts</a>
+    <a href="week8.html">Week 8 — 50,000 Target</a>
+    <a href="../about.html">About</a>
+  </div>
+</nav>
+
+<main>
+  <header class="post-header">
+    <div class="container--prose">
+      <div class="post-header__week">Week 9 · 13 May 2026</div>
+      <h1 class="post-header__title">Lessons Learnt &amp; Reflection — Digital Manufacturing in Practice</h1>
+      <div class="post-header__meta">
+        <span class="post-header__meta-item">📅 13 May 2026</span>
+        <span class="post-header__meta-item">⏱ 6 min read</span>
+        <span class="post-header__meta-item">🏷 Reflection · Industry 4.0 · Sustainability</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="container--prose">
+
+    <div class="post-hero-img" data-label="📸 Replace: Final photo — e.g. your completed top and bottom casings assembled, or a screenshot of the final simulation report"></div>
+
+    <article class="article-body">
+
+      <h2>The Journey in Summary</h2>
+      <p>
+        Nine weeks ago, I was handed a brief: produce top and bottom phone casings for Phones-R-Us using additive manufacturing, ensure they fit seamlessly with a master assembly, and demonstrate that a 50,000-unit annual production target is achievable. That brief has shaped every session in the lab, every measurement, every simulation run, and every post on this blog.
+      </p>
+      <p>
+        Looking back, what strikes me most is how interconnected the challenges were. Dimensional accuracy in the 3D printing process (Week 3) determined the metrology outcomes (Week 4), which in turn shaped the process capability analysis (Week 5). The reverse engineering workflow (Week 6) depended on the same measurement infrastructure. And the simulation work (Weeks 7–8) was only as reliable as the cycle time data gathered from the FESTO lab (Week 2). Digital manufacturing is not a collection of isolated tools; it is a system, and its value emerges from the connections between its parts.
+      </p>
+
+      <h2>Lesson 1 — Manufacturing in a Digital Age</h2>
+      <p>
+        <!-- ✏️ EDIT: Replace with your personal reflection on digital manufacturing -->
+        [Reflect on your experience of using digital manufacturing processes — 3D printing, scanning, plant simulation — in combination. What did digitisation enable that would have been impossible or prohibitively expensive with traditional methods? What are its current limitations? Did the technology perform as you expected, or did reality differ from theory?]
+      </p>
+      <p>
+        [✏️ EDIT: Connect your experience to broader Industry 4.0 themes — the digital thread, cyber-physical systems, or data-driven manufacturing. Were there moments during the module where you could see the potential for these concepts, even if the full realisation was beyond the scope of the lab?]
+      </p>
+
+      <h2>Lesson 2 — The Challenge of Dimensional Consistency</h2>
+      <p>
+        <!-- ✏️ EDIT: Replace with your reflection on metrology and variability -->
+        [Reflect on the challenge of producing dimensionally consistent parts using 3D printing. What were the dominant sources of variability you observed? How did the Cp/Cpk analysis help you understand the process? What adjustments had the most impact on reducing variation?]
+      </p>
+
+      <div class="callout">
+        <div class="callout__label">Key Insight — Multi-Supplier Variability</div>
+        <p>
+          [✏️ EDIT: Articulate the multi-supplier challenge in your own words. Even if each supplier individually achieves an acceptable Cpk, the combined production stream from multiple suppliers will have greater total variation than any single supplier. What are the implications of this for Phones-R-Us, and what digital manufacturing strategies could mitigate it?]
+        </p>
+      </div>
+
+      <h2>Lesson 3 — The Value of Plant Simulation</h2>
+      <p>
+        <!-- ✏️ EDIT: Replace with your reflection on the simulation work -->
+        [Reflect on what the Tecnomatix simulation exercise taught you. Was the 50,000 target easier or harder to achieve than you initially expected? What did the simulation reveal that you could not have known from simply observing the FESTO lab? What would it have cost, in time and money, to discover the same insights through physical trials?]
+      </p>
+      <p>
+        [✏️ EDIT: Consider the limitations of your simulation. What assumptions did you make that may not hold in a real production environment — e.g. perfect part quality, no unplanned downtime, fixed cycle times? How might you extend the model to capture these real-world complexities?]
+      </p>
+
+      <h2>Environmental and Societal Considerations</h2>
+      <p>
+        Additive manufacturing is often positioned as an inherently sustainable technology — producing parts on demand, reducing material waste through near-net-shape processes, and enabling localised production that shortens supply chains. The reality is more nuanced. FDM printing generates waste in the form of support structures and failed prints; the energy consumption of printers running continuously to meet a 50,000-unit target is non-trivial; and the polymers most commonly used (PLA, ABS, PETG) have complex end-of-life profiles (Ford and Despeisse, 2016).
+      </p>
+      <p>
+        [✏️ EDIT: Add your own reflection on the environmental impact of the manufacturing approach you used. Did you calculate or estimate the material consumption per casing? How does the energy use of your chosen printer compare to injection moulding at scale? What product lifecycle considerations should Phones-R-Us factor into their supplier selection criteria?]
+      </p>
+
+      <div class="gallery">
+        <div class="gallery__item">
+          <div class="gallery__item-icon">📸</div>
+          <div class="gallery__item-label">Final Casings</div>
+        </div>
+        <div class="gallery__item">
+          <div class="gallery__item-icon">📸</div>
+          <div class="gallery__item-label">Assembly Test</div>
+        </div>
+        <div class="gallery__item">
+          <div class="gallery__item-icon">📊</div>
+          <div class="gallery__item-label">Final Simulation</div>
+        </div>
+        <div class="gallery__item">
+          <div class="gallery__item-icon">📸</div>
+          <div class="gallery__item-label">FESTO Line Test</div>
+        </div>
+        <div class="gallery__caption">📸 Replace with: your best photos and screenshots from across the module — a visual summary of the nine weeks of work.</div>
+      </div>
+
+      <h2>What I Would Do Differently</h2>
+      <p>
+        <!-- ✏️ EDIT: This is a valuable reflective section — be honest and specific -->
+        [Identify 2–3 things you would do differently if repeating this module. For example: starting the simulation model earlier, taking more systematic notes during FESTO lab sessions, printing more test parts before committing to a final process, or spending more time on the literature review. Authentic reflection here is much more valuable than a list of successes.]
+      </p>
+
+      <h2>Closing Thoughts</h2>
+      <p>
+        <!-- ✏️ EDIT: Write your genuine closing reflection -->
+        [Close the blog with your honest overall assessment of the experience. What has this module changed about how you think about manufacturing? What skills have you developed? How do you see the digital manufacturing technologies you have used — 3D printing, scanning, simulation — evolving over the next decade, and what role do you hope to play in that evolution?]
+      </p>
+      <p>
+        [✏️ EDIT: You may also wish to note any additional work you plan to do — further prints, additional simulation scenarios, or blog posts you intend to add after this submission deadline.]
+      </p>
+
+      <div class="video-placeholder">
+        <div class="video-placeholder__play">▶</div>
+        <div class="video-placeholder__label">Video Placeholder</div>
+        <div class="video-placeholder__desc">Replace with: a final summary video — e.g. your assembled phone casing being tested on the FESTO line, or a verbal reflection recorded to camera</div>
+      </div>
+
+      <div class="references">
+        <h2 class="references__heading">References</h2>
+        <div class="references__list">
+          <div class="references__item">
+            Ford, S. and Despeisse, M. (2016) 'Additive manufacturing and sustainability: an exploratory study of the advantages and challenges', <em>Journal of Cleaner Production</em>, 137, pp. 1573–1587. doi: 10.1016/j.jclepro.2016.04.150
+            <span class="ref-placeholder">✏️ Verify</span>
+          </div>
+          <div class="references__item">
+            Gilchrist, A. (2016) <em>Industry 4.0: The Industrial Internet of Things</em>. New York: Apress. doi: 10.1007/978-1-4842-2047-4
+            <span class="ref-placeholder">✏️ Verify</span>
+          </div>
+          <div class="references__item">
+            [Add a third reference relevant to your reflection — e.g. on the future of additive manufacturing, sustainability in production, or digital transformation in engineering]
+            <span class="ref-placeholder">✏️ Add</span>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- Final post — only previous nav -->
+    <nav class="post-nav" aria-label="Post navigation">
+      <a class="post-nav__item" href="week8.html">
+        <div class="post-nav__dir">← Previous Post</div>
+        <div class="post-nav__title">Week 8: Hitting 50,000 Phones/Year</div>
+      </a>
+      <a class="post-nav__item post-nav__item--next" href="../index.html">
+        <div class="post-nav__dir">← Back to</div>
+        <div class="post-nav__title">All Posts — Home</div>
+      </a>
+    </nav>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div><div class="footer__brand">Digital<span>Mfg</span> Blog</div><div class="footer__tagline">6E7V0013 · Manchester Met · 2025–26</div></div>
+      <div class="footer__info"><strong>[Your Name]</strong> Module 6E7V0013 · Manchester Metropolitan University</div>
+      <div class="footer__divider"></div>
+      <div class="footer__bottom"><span>© 2026 [Your Name]. All rights reserved.</span><a href="../index.html" style="color:rgba(255,255,255,.5)">← All Posts</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

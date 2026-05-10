@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 5: Process Capability — Cp, Cpk and Managing Variability — Digital Manufacturing Blog</title>
+  <meta name="description" content="Printing multiple parts and running statistical analysis. What do Cp and Cpk tell us about our 3D printer's repeatability?" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🏭</text></svg>" />
+</head>
+<body>
+
+<div class="progress-bar" id="progress-bar"></div>
+
+<nav class="nav" role="navigation">
+  <div class="nav__inner">
+    <a class="nav__brand" href="../index.html">Digital<span>Mfg</span> Blog</a>
+    <div class="nav__links">
+      <a href="../index.html">Home</a>
+      <a href="week1.html" class="active">Posts</a>
+      <a href="../about.html">About</a>
+    </div>
+    <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="nav__mobile" id="nav-mobile">
+    <a href="../index.html">← Home / All Posts</a>
+    <a href="week4.html">Week 4 — Metrology</a>
+    <a href="week6.html">Week 6 — Reverse Engineering</a>
+    <a href="../about.html">About</a>
+  </div>
+</nav>
+
+<main>
+  <header class="post-header">
+    <div class="container--prose">
+      <div class="post-header__week">Week 5 · 13 March 2026</div>
+      <h1 class="post-header__title">Process Capability — Cp, Cpk and Managing Variability</h1>
+      <div class="post-header__meta">
+        <span class="post-header__meta-item">📅 13 March 2026</span>
+        <span class="post-header__meta-item">⏱ 6 min read</span>
+        <span class="post-header__meta-item">🏷 SPC · PFMEA · Process Capability</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="container--prose">
+
+    <div class="post-hero-img" data-label="📸 Replace: Photo of multiple printed parts laid out for comparative measurement, or a Cp/Cpk chart"></div>
+
+    <article class="article-body">
+
+      <h2>From Single Parts to Statistical Thinking</h2>
+      <p>
+        Last week I measured individual parts and found [✏️ edit: brief summary of Week 4 findings]. A single measurement, however good, tells us nothing about the <em>consistency</em> of the process. In a production context — particularly one where Phones-R-Us will be receiving casings from multiple suppliers — what matters is not whether one part was in tolerance, but whether the <em>process</em> reliably produces parts within tolerance. This distinction is the foundation of Statistical Process Control (SPC) and process capability analysis.
+      </p>
+      <p>
+        This week I produced a larger batch of bottom casings under identical conditions, measured the critical dimension(s) on each part, and calculated the process capability indices Cp and Cpk. These indices quantify the relationship between the natural spread of the process and the tolerance band specified on the drawing. A Cp of 1.0 means the process spread exactly fills the tolerance; a value above 1.33 is the conventional threshold for a capable process in many manufacturing contexts (Montgomery, 2019).
+      </p>
+
+      <h2>PFMEA — Identifying Potential Failure Modes</h2>
+      <p>
+        Before presenting the capability data, it is worth contextualising it within a Process Failure Mode and Effects Analysis (PFMEA). A PFMEA is a structured risk assessment tool that catalogues potential failure modes in a process, estimates their severity, occurrence probability, and detectability, and uses these scores to generate a Risk Priority Number (RPN). High-RPN items are targeted for preventive action.
+      </p>
+      <p>
+        <!-- ✏️ EDIT: Replace with your actual PFMEA entries -->
+        [Describe the key failure modes you identified for the 3D printing process. Common FDM failures include: layer delamination, warping/bed adhesion failure, stringing, under-extrusion, and dimensional drift. For each, estimate Severity (1-10), Occurrence (1-10), and Detection (1-10), then calculate RPN = S × O × D.]
+      </p>
+
+      <div class="placeholder">
+        <div class="placeholder__icon">📊</div>
+        <div class="placeholder__label">PFMEA Table Placeholder</div>
+        <div class="placeholder__desc">Replace with: a screenshot or table of your completed PFMEA, showing failure modes, S/O/D ratings, RPNs, and recommended actions</div>
+      </div>
+
+      <h2>Capability Results — Cp and Cpk</h2>
+      <p>
+        <!-- ✏️ EDIT: Replace with your actual calculation and results -->
+        [Present your Cp and Cpk results. Show the formula, your measured mean (x̄), standard deviation (σ), upper specification limit (USL), and lower specification limit (LSL). Then interpret the values — is the process capable? Is it centred on the nominal? A Cpk significantly lower than Cp indicates a mean shift that should be addressed.]
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-m); margin: var(--space-l) 0;">
+        <div style="background:var(--white); border:1px solid var(--rule); border-radius:var(--radius-l); padding:var(--space-m); text-align:center;">
+          <div style="font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin-bottom:.5rem;">Cp (Process Capability)</div>
+          <div style="font-family:var(--serif); font-size:2.5rem; color:var(--ink);">[✏️]</div>
+          <div style="font-size:.8rem; color:var(--ink-soft); margin-top:.25rem;">Replace with your calculated value</div>
+        </div>
+        <div style="background:var(--white); border:1px solid var(--rule); border-radius:var(--radius-l); padding:var(--space-m); text-align:center;">
+          <div style="font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin-bottom:.5rem;">Cpk (Process Capability Index)</div>
+          <div style="font-family:var(--serif); font-size:2.5rem; color:var(--ink);">[✏️]</div>
+          <div style="font-size:.8rem; color:var(--ink-soft); margin-top:.25rem;">Replace with your calculated value</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout__label">Interpretation</div>
+        <p>
+          <!-- ✏️ EDIT: Replace with your interpretation of the capability indices -->
+          [Interpret your Cp and Cpk values. Is the process capable (Cpk ≥ 1.33)? If not, what does this mean for the Phones-R-Us contract? What actions would you recommend — e.g. tightening print parameters, changing material, or applying a scaling correction in the slicer?]
+        </p>
+      </div>
+
+      <h2>Multi-Supplier Implications</h2>
+      <p>
+        A single-supplier capability study is informative; a multi-supplier study is essential. The core challenge articulated at the start of this module is whether casings from different suppliers — all working to the same drawing — will be sufficiently consistent to be interchangeable in the FESTO assembly line. Even if my process achieves Cpk = 1.3, a second supplier with Cpk = 0.9 introduces a fraction of non-conforming parts into the combined production stream.
+      </p>
+      <p>
+        This is the fundamental argument for vertical and horizontal digital integration in Industry 4.0: if each supplier shares real-time process and measurement data, defective trends can be detected and corrected before they reach the assembly stage (Thoben, Wiesner and Wuest, 2017). In the absence of such integration, the manufacturer must either accept a degree of scrap and rework or implement incoming inspection — both costly strategies.
+      </p>
+      <p>
+        [✏️ EDIT: Add your personal reflection on what the multi-supplier variability challenge means for the Phones-R-Us scenario specifically. What would you recommend to Phones-R-Us as their procurement strategy?]
+      </p>
+
+      <div class="video-placeholder">
+        <div class="video-placeholder__play">▶</div>
+        <div class="video-placeholder__label">Video Placeholder</div>
+        <div class="video-placeholder__desc">Replace with: video walkthrough of your Cp/Cpk calculation, or a demonstration of the measurement session</div>
+      </div>
+
+      <div class="references">
+        <h2 class="references__heading">References</h2>
+        <div class="references__list">
+          <div class="references__item">
+            Montgomery, D.C. (2019) <em>Introduction to Statistical Quality Control</em>. 8th edn. Hoboken, NJ: Wiley.
+            <span class="ref-placeholder">✏️ Verify edition</span>
+          </div>
+          <div class="references__item">
+            Thoben, K-D., Wiesner, S. and Wuest, T. (2017) '"Industrie 4.0" and smart manufacturing — a review of research issues and application examples', <em>International Journal of Automation Technology</em>, 11(1), pp. 4–16. doi: 10.20965/ijat.2017.p0004
+            <span class="ref-placeholder">✏️ Verify</span>
+          </div>
+          <div class="references__item">
+            [Add a third reference — e.g. a paper on process capability in additive manufacturing, or PFMEA methodology in production]
+            <span class="ref-placeholder">✏️ Add</span>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+    <nav class="post-nav" aria-label="Post navigation">
+      <a class="post-nav__item" href="week4.html">
+        <div class="post-nav__dir">← Previous Post</div>
+        <div class="post-nav__title">Week 4: Metrology &amp; Scanning</div>
+      </a>
+      <a class="post-nav__item post-nav__item--next" href="week6.html">
+        <div class="post-nav__dir">Next Post →</div>
+        <div class="post-nav__title">Week 6: Reverse Engineering the Top Casing</div>
+      </a>
+    </nav>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div><div class="footer__brand">Digital<span>Mfg</span> Blog</div><div class="footer__tagline">6E7V0013 · Manchester Met · 2025–26</div></div>
+      <div class="footer__info"><strong>[Your Name]</strong> Module 6E7V0013 · Manchester Metropolitan University</div>
+      <div class="footer__divider"></div>
+      <div class="footer__bottom"><span>© 2026 [Your Name]</span><a href="../index.html" style="color:rgba(255,255,255,.5)">← All Posts</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

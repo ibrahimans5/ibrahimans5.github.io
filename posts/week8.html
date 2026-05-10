@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 8: Hitting 50,000 Phones/Year — Optimisation &amp; Printer Fleet Sizing</title>
+  <meta name="description" content="Optimising the simulation model and running scenarios to hit the 50,000 target. Calculating how many 3D printers are needed." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🏭</text></svg>" />
+</head>
+<body>
+
+<div class="progress-bar" id="progress-bar"></div>
+
+<nav class="nav" role="navigation">
+  <div class="nav__inner">
+    <a class="nav__brand" href="../index.html">Digital<span>Mfg</span> Blog</a>
+    <div class="nav__links">
+      <a href="../index.html">Home</a>
+      <a href="week1.html" class="active">Posts</a>
+      <a href="../about.html">About</a>
+    </div>
+    <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="nav__mobile" id="nav-mobile">
+    <a href="../index.html">← Home / All Posts</a>
+    <a href="week7.html">Week 7 — Plant Simulation</a>
+    <a href="week9.html">Week 9 — Lessons Learnt</a>
+    <a href="../about.html">About</a>
+  </div>
+</nav>
+
+<main>
+  <header class="post-header">
+    <div class="container--prose">
+      <div class="post-header__week">Week 8 · 24 April 2026</div>
+      <h1 class="post-header__title">Hitting 50,000 Phones/Year — Optimisation &amp; Printer Fleet Sizing</h1>
+      <div class="post-header__meta">
+        <span class="post-header__meta-item">📅 24 April 2026</span>
+        <span class="post-header__meta-item">⏱ 8 min read</span>
+        <span class="post-header__meta-item">🏷 Optimisation · Throughput · Fleet Sizing</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="container--prose">
+
+    <div class="post-hero-img" data-label="📸 Replace: Screenshot of your optimised Tecnomatix model hitting the 50,000 target, showing throughput statistics"></div>
+
+    <article class="article-body">
+
+      <h2>The Central Question</h2>
+      <p>
+        Everything in this module has been building towards a single question: <strong>can the Phones-R-Us assembly system — supplemented by an appropriate fleet of 3D printers — produce 50,000 phones per annum?</strong> Week 7 established the baseline simulation. This week I optimise the model, run multiple scenarios, and arrive at a definitive answer — along with the printer fleet size required to support the assembly throughput.
+      </p>
+      <p>
+        The target of 50,000 units per year can be translated into a required <em>takt time</em>: the maximum allowable time between consecutive completed assemblies, given the available production time. Assuming [✏️ edit: shift pattern — e.g. a single 8-hour shift, 5 days per week, 48 working weeks per year], the available annual production time is approximately [✏️ calculate: e.g. 8 × 60 × 5 × 48 = 115,200 minutes]. The required takt time is therefore 115,200 / 50,000 = [✏️ result] minutes per phone, or [✏️ result] seconds.
+      </p>
+
+      <div style="background:var(--teal); color:white; border-radius:var(--radius-l); padding:var(--space-l); text-align:center; margin:var(--space-l) 0;">
+        <div style="font-size:.75rem; letter-spacing:.12em; text-transform:uppercase; opacity:.8; margin-bottom:.5rem;">Required Takt Time</div>
+        <div style="font-family:var(--serif); font-size:3rem; line-height:1;">[✏️] seconds</div>
+        <div style="font-size:.85rem; opacity:.8; margin-top:.5rem;">to produce 50,000 phones/year on [✏️] shift pattern</div>
+      </div>
+
+      <h2>Optimisation Strategy</h2>
+      <p>
+        The baseline model from Week 7 showed a throughput of approximately [✏️ edit: baseline figure] phones per year, falling [✏️ edit: short of / close to / above] the target. To close the gap — or to confirm and document how the target was reached — I explored the following optimisation levers:
+      </p>
+      <p>
+        [✏️ EDIT: Describe the specific optimisations you applied. Common approaches include: increasing buffer capacities between stations to smooth flow, adjusting the shift pattern (adding hours or shifts), parallelising the bottleneck station (adding a second resource), or identifying and eliminating unnecessary downtime from the model. For each change, explain your reasoning.]
+      </p>
+
+      <div class="placeholder">
+        <div class="placeholder__icon">📊</div>
+        <div class="placeholder__label">Tecnomatix Scenario Comparison Placeholder</div>
+        <div class="placeholder__desc">Replace with: screenshot comparing throughput across your different simulation scenarios (Baseline vs Scenario A vs Scenario B, etc.)</div>
+      </div>
+
+      <h2>Simulation Scenarios</h2>
+
+      <!-- ✏️ EDIT: Replace with your actual scenario results -->
+      <div style="overflow-x:auto; margin: var(--space-l) 0;">
+        <table style="width:100%; border-collapse:collapse; font-size:.875rem;">
+          <thead>
+            <tr style="background:var(--teal); color:white; text-align:left;">
+              <th style="padding:.75rem 1rem;">Scenario</th>
+              <th style="padding:.75rem 1rem;">Change Made</th>
+              <th style="padding:.75rem 1rem;">Annual Output</th>
+              <th style="padding:.75rem 1rem;">Target Met?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--rule);">
+              <td style="padding:.65rem 1rem;"><strong>Baseline</strong></td>
+              <td style="padding:.65rem 1rem;">As-observed from FESTO lab</td>
+              <td style="padding:.65rem 1rem;">[✏️] phones/yr</td>
+              <td style="padding:.65rem 1rem; color:var(--warning);">✗ No</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--rule); background:var(--teal-light);">
+              <td style="padding:.65rem 1rem;"><strong>Scenario A</strong></td>
+              <td style="padding:.65rem 1rem;">[✏️ Describe change]</td>
+              <td style="padding:.65rem 1rem;">[✏️] phones/yr</td>
+              <td style="padding:.65rem 1rem;">[✏️]</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--rule);">
+              <td style="padding:.65rem 1rem;"><strong>Scenario B</strong></td>
+              <td style="padding:.65rem 1rem;">[✏️ Describe change]</td>
+              <td style="padding:.65rem 1rem;">[✏️] phones/yr</td>
+              <td style="padding:.65rem 1rem;">[✏️]</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--rule); background:var(--teal-light);">
+              <td style="padding:.65rem 1rem;"><strong>Final Model</strong></td>
+              <td style="padding:.65rem 1rem;">[✏️ All changes combined]</td>
+              <td style="padding:.65rem 1rem; font-weight:700;">[✏️] phones/yr</td>
+              <td style="padding:.65rem 1rem; color:var(--teal); font-weight:700;">✓ Yes</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size:.75rem; color:var(--ink-soft); margin-top:.5rem;">✏️ Table: Replace all values with your actual simulation scenario results.</p>
+      </div>
+
+      <h2>Printer Fleet Sizing</h2>
+      <p>
+        The assembly line simulation tells us the rate at which casings are consumed. To sustain that rate, the 3D printer fleet must supply casings at least as fast as the assembly line consumes them — accounting for the lead time per print, the number of parts per print bed, and planned printer downtime for maintenance.
+      </p>
+      <p>
+        Based on the print time recorded in Week 3 ([✏️ edit: actual print time, e.g. 4.5 hours per casing / per batch of X casings]) and the required supply rate of [✏️ casings per day based on the simulation], the minimum number of printers required is calculated as follows:
+      </p>
+
+      <div class="callout">
+        <div class="callout__label">Printer Fleet Calculation</div>
+        <p>
+          Required supply rate: [✏️] casings/day (×2 for top and bottom = [✏️] casing sets/day)<br>
+          Print time per casing: [✏️] hours<br>
+          Available print hours per printer per day: [✏️] hours (assuming [✏️] shift)<br>
+          Parts per printer per day: [✏️]<br>
+          <strong>Minimum printers required: [✏️] printers</strong><br>
+          With [✏️]% downtime allowance: [✏️] printers (recommended fleet size)
+        </p>
+      </div>
+
+      <div class="gallery">
+        <div class="gallery__item">
+          <div class="gallery__item-icon">📊</div>
+          <div class="gallery__item-label">Final Tecnomatix Model</div>
+        </div>
+        <div class="gallery__item">
+          <div class="gallery__item-icon">📊</div>
+          <div class="gallery__item-label">Annual Throughput</div>
+        </div>
+        <div class="gallery__item">
+          <div class="gallery__item-icon">📊</div>
+          <div class="gallery__item-label">Utilisation — All Stations</div>
+        </div>
+        <div class="gallery__item">
+          <div class="gallery__item-icon">📊</div>
+          <div class="gallery__item-label">Printer Fleet Model</div>
+        </div>
+        <div class="gallery__caption">📊 Replace with: Tecnomatix screenshots showing your final optimised model, throughput statistics, and printer fleet integration.</div>
+      </div>
+
+      <div class="video-placeholder">
+        <div class="video-placeholder__play">▶</div>
+        <div class="video-placeholder__label">Video Placeholder</div>
+        <div class="video-placeholder__desc">Replace with: screen recording of your final Tecnomatix simulation run confirming the 50,000 target has been met</div>
+      </div>
+
+      <div class="references">
+        <h2 class="references__heading">References</h2>
+        <div class="references__list">
+          <div class="references__item">
+            Womack, J.P. and Jones, D.T. (2003) <em>Lean Thinking: Banish Waste and Create Wealth in Your Corporation</em>. Revised edn. London: Simon &amp; Schuster.
+            <span class="ref-placeholder">✏️ Verify relevance — useful for takt time and flow concepts</span>
+          </div>
+          <div class="references__item">
+            Chryssolouris, G. (2006) <em>Manufacturing Systems: Theory and Practice</em>. 2nd edn. New York: Springer. doi: 10.1007/0-387-28431-1
+            <span class="ref-placeholder">✏️ Verify</span>
+          </div>
+          <div class="references__item">
+            [Add a third reference — e.g. on production planning, OEE calculation, or additive manufacturing capacity planning for production]
+            <span class="ref-placeholder">✏️ Add</span>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+    <nav class="post-nav" aria-label="Post navigation">
+      <a class="post-nav__item" href="week7.html">
+        <div class="post-nav__dir">← Previous Post</div>
+        <div class="post-nav__title">Week 7: Tecnomatix Plant Simulation</div>
+      </a>
+      <a class="post-nav__item post-nav__item--next" href="week9.html">
+        <div class="post-nav__dir">Next Post →</div>
+        <div class="post-nav__title">Week 9: Lessons Learnt &amp; Reflection</div>
+      </a>
+    </nav>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div><div class="footer__brand">Digital<span>Mfg</span> Blog</div><div class="footer__tagline">6E7V0013 · Manchester Met · 2025–26</div></div>
+      <div class="footer__info"><strong>[Your Name]</strong> Module 6E7V0013 · Manchester Metropolitan University</div>
+      <div class="footer__divider"></div>
+      <div class="footer__bottom"><span>© 2026 [Your Name]</span><a href="../index.html" style="color:rgba(255,255,255,.5)">← All Posts</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
