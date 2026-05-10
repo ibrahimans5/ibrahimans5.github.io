@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Manufacturing Blog — 6E7V0013 | Manchester Met</title>
+  <meta name="description" content="A reflective blog documenting the digital manufacturing journey for module 6E7V0013 at Manchester Metropolitan University. Covering 3D printing, metrology, plant simulation, and Industry 4.0." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🏭</text></svg>" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a class="nav__brand" href="index.html">Digital<span>Mfg</span> Blog</a>
+    <div class="nav__links">
+      <a href="index.html" class="active">Home</a>
+      <a href="posts/week1.html">Posts</a>
+      <a href="about.html">About</a>
+    </div>
+    <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <div class="nav__mobile" id="nav-mobile" role="menu">
+    <a href="index.html">Home</a>
+    <a href="posts/week1.html">Week 1 — Introduction</a>
+    <a href="posts/week2.html">Week 2 — FESTO CP Lab</a>
+    <a href="posts/week3.html">Week 3 — 3D Printing</a>
+    <a href="posts/week4.html">Week 4 — Metrology</a>
+    <a href="posts/week5.html">Week 5 — Process Capability</a>
+    <a href="posts/week6.html">Week 6 — Reverse Engineering</a>
+    <a href="posts/week7.html">Week 7 — Plant Simulation</a>
+    <a href="posts/week8.html">Week 8 — 50,000 Target</a>
+    <a href="posts/week9.html">Week 9 — Lessons Learnt</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__eyebrow">6E7V0013 — Digital Manufacturing</div>
+    <h1 class="hero__title fade-up fade-up--1">
+      Manufacturing <em>Phones-R-Us</em>:<br>A Digital Journey
+    </h1>
+    <p class="hero__intro fade-up fade-up--2">
+      A semester-long reflective blog documenting my work as a supplier of 3D-printed phone casings — exploring additive manufacturing, metrology, Industry 4.0, and Tecnomatix plant simulation to hit a target of <strong>50,000 phones per year</strong>.
+    </p>
+    <div class="hero__meta fade-up fade-up--3">
+      <span class="badge badge--teal">MSc Digital Design &amp; Manufacturing</span>
+      <span class="badge badge--teal">Manchester Metropolitan University</span>
+      <span class="badge badge--ink">2025–26</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<section style="background: var(--teal); color: white; padding: var(--space-l) 0;">
+  <div class="container" style="display: flex; flex-wrap: wrap; gap: var(--space-l); align-items: center; justify-content: space-between;">
+    <div>
+      <div style="font-size:.75rem; letter-spacing:.12em; text-transform:uppercase; opacity:.7; margin-bottom:.25rem;">The Challenge</div>
+      <div style="font-family: var(--serif); font-size:1.4rem; line-height:1.2;">
+        9 weeks. Two phone casings.<br>One production target.
+      </div>
+    </div>
+    <div style="display: flex; gap: var(--space-xl); flex-wrap: wrap;">
+      <div style="text-align: center;">
+        <div style="font-family:var(--serif); font-size:2.2rem; line-height:1;">50,000</div>
+        <div style="font-size:.75rem; opacity:.7; letter-spacing:.06em; text-transform:uppercase;">Phones / Year</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-family:var(--serif); font-size:2.2rem; line-height:1;">6</div>
+        <div style="font-size:.75rem; opacity:.7; letter-spacing:.06em; text-transform:uppercase;">Assembly Stations</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-family:var(--serif); font-size:2.2rem; line-height:1;">9</div>
+        <div style="font-size:.75rem; opacity:.7; letter-spacing:.06em; text-transform:uppercase;">Blog Posts</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POST GRID -->
+<section class="posts-section">
+  <div class="container">
+    <div class="posts-section__header">
+      <h2 class="posts-section__heading">All Posts</h2>
+      <span class="posts-section__count">9 entries — Feb to May 2026</span>
+    </div>
+
+    <div class="post-grid">
+
+      <!-- Week 1 -->
+      <article class="card">
+        <div class="card__thumb">
+          <span class="card__thumb-week">Week 1</span>
+          <span class="card__thumb-label">📋 Introduction</span>
+        </div>
+        <div class="card__body">
+          <div class="card__meta">
+            <span>13 Feb 2026</span>
+            <span class="card__meta-dot"></span>
+            <span>4 min read</span>
+          </div>
+          <h3 class="card__title">Introduction &amp; Blog Setup — The Phones-R-Us Challenge</h3>
+          <p class="card__excerpt">Setting the scene: what it means to be a plastic casing manufacturer in an Industry 4.0 world. The brief, the stakeholders, and my plan of attack for the semester.</p>
+          <a class="card__link" href="posts/week1.html">Read post</a>
+        </div>
+      </article>
+
+      <!-- Week 2 -->
+      <article class="card">
+        <div class="card__thumb" style="background: #e0f0f0;">
+          <span class="card__thumb-week">Week 2</span>
+          <span class="card__thumb-label">🏭 FESTO Lab</span>
+        </div>
+        <div class="card__body">
+          <div class="card__meta">
+            <span>20 Feb 2026</span>
+            <span class="card__meta-dot"></span>
+            <span>5 min read</span>
+          </div>
+          <h3 class="card__title">First Look at the FESTO CP Lab — 6 Stations Observed</h3>
+          <p class="card__excerpt">Observing the physical phone assembly line for the first time. Breaking down each of the six stations, cycle times, and what this means for our simulation later in the module.</p>
+          <a class="card__link" href="posts/week2.html">Read post</a>
+        </div>
+      </article>
+
+      <!-- Week 3 -->
+      <article class="card">
+        <div class="card__thumb" style="background: #dff0ec;">
+          <span class="card__thumb-week">Week 3</span>
+          <span class="card__thumb-label">🖨️ 3D Printing</span>
+        </div>
+        <div class="card__body">
+          <div class="card__meta">
+            <span>27 Feb 2026</span>
+            <span class="card__meta-dot"></span>
+            <span>6 min read</span>
+          </div>
+          <h3 class="card__title">3D Printing — Machine Selection &amp; First Bottom Casings</h3>
+          <p class="card__excerpt">Selecting a printer from the available fleet, interpreting the engineering drawing for the bottom casing, and producing our first prototypes. What went right and what did not.</p>
+          <a class="card__link" href="posts/week3.html">Read post</a>
+        </div>
+      </article>
+
+      <!-- Week 4 -->
+      <article class="card">
+        <div class="card__thumb" style="background: #e8eef5;">
+          <span class="card__thumb-week">Week 4</span>
+          <span class="card__thumb-label">📐 Metrology</span>
+        </div>
+        <div class="card__body">
+          <div class="card__meta">
+            <span>6 Mar 2026</span>
+            <span class="card__meta-dot"></span>
+            <span>5 min read</span>
+          </div>
+          <h3 class="card__title">Metrology &amp; Scanning — Are Our Parts in Tolerance?</h3>
+          <p class="card__excerpt">Using scanning and metrology equipment to measure printed parts against the drawing. Understanding deviation, tolerance bands, and whether our casing will fit the master assembly.</p>
+          <a class="card__link" href="posts/week4.html">Read post</a>
+        </div>
+      </article>
+
+      <!-- Week 5 -->
+      <article class="card">
+        <div class="card__thumb" style="background: #f0ece0;">
+          <span class="card__thumb-week">Week 5</span>
+          <span class="card__thumb-label">📊 Process Capability</span>
+        </div>
+        <div class="card__body">
+          <div class="card__meta">
+            <span>13 Mar 2026</span>
+            <span class="card__meta-dot"></span>
+            <span>6 min read</span>
+          </div>
+          <h3 class="card__title">Process Capability — Cp, Cpk and Managing Variability</h3>
+          <p class="card__excerpt">Printing multiple parts and running statistical analysis. What do Cp and Cpk tell us about our 3D printer's repeatability, and what does this mean for a multi-supplier environment?</p>
+          <a class="card__link" href="posts/week5.html">Read post</a>
+        </div>
+      </article>
+
+      <!-- Week 6 -->
+      <article class="card">
+        <div class="card__thumb" style="background: #ede0f0;">
+          <span class="card__thumb-week">Week 6</span>
+          <span class="card__thumb-label">🔍 Reverse Engineering</span>
+        </div>
+        <div class="card__body">
+          <div class="card__meta">
+            <span>20 Mar 2026</span>
+            <span class="card__meta-dot"></span>
+            <span>5 min read</span>
+          </div>
+          <h3 class="card__title">Reverse Engineering the Top Casing — Scan to Print</h3>
+          <p class="card__excerpt">No drawing was provided for the top casing. This post covers the scan-to-CAD-to-print workflow, the challenges of reverse engineering a physical artefact, and the results.</p>
+          <a class="card__link" href="posts/week6.html">Read post</a>
+        </div>
+      </article>
+
+      <!-- Week 7 -->
+      <article class="card">
+        <div class="card__thumb" style="background: #e0f0e8;">
+          <span class="card__thumb-week">Week 7</span>
+          <span class="card__thumb-label">🖥️ Simulation</span>
+        </div>
+        <div class="card__body">
+          <div class="card__meta">
+            <span>3 Apr 2026</span>
+            <span class="card__meta-dot"></span>
+            <span>7 min read</span>
+          </div>
+          <h3 class="card__title">Tecnomatix Plant Simulation — Building the Virtual Assembly Line</h3>
+          <p class="card__excerpt">Modelling the FESTO CP lab's six stations in Tecnomatix. Defining cycle times, buffers, and resource constraints to create a digital twin of the phone assembly process.</p>
+          <a class="card__link" href="posts/week7.html">Read post</a>
+        </div>
+      </article>
+
+      <!-- Week 8 -->
+      <article class="card">
+        <div class="card__thumb" style="background: #f0e8e0;">
+          <span class="card__thumb-week">Week 8</span>
+          <span class="card__thumb-label">🎯 50,000 Target</span>
+        </div>
+        <div class="card__body">
+          <div class="card__meta">
+            <span>24 Apr 2026</span>
+            <span class="card__meta-dot"></span>
+            <span>8 min read</span>
+          </div>
+          <h3 class="card__title">Hitting 50,000 Phones/Year — Optimisation &amp; Printer Fleet Sizing</h3>
+          <p class="card__excerpt">Optimising the simulation model and running scenarios to hit the 50,000 target. Calculating how many 3D printers are needed based on cycle time and working patterns.</p>
+          <a class="card__link" href="posts/week8.html">Read post</a>
+        </div>
+      </article>
+
+      <!-- Week 9 -->
+      <article class="card">
+        <div class="card__thumb" style="background: #e8e0e0;">
+          <span class="card__thumb-week">Week 9</span>
+          <span class="card__thumb-label">💡 Reflection</span>
+        </div>
+        <div class="card__body">
+          <div class="card__meta">
+            <span>13 May 2026</span>
+            <span class="card__meta-dot"></span>
+            <span>6 min read</span>
+          </div>
+          <h3 class="card__title">Lessons Learnt &amp; Reflection — Digital Manufacturing in Practice</h3>
+          <p class="card__excerpt">A final reflection on the entire module: multi-supplier variability, the power of simulation, what I would do differently, and the role of Industry 4.0 in modern manufacturing.</p>
+          <a class="card__link" href="posts/week9.html">Read post</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand">Digital<span>Mfg</span> Blog</div>
+        <div class="footer__tagline">A reflective learning journal for 6E7V0013 Digital Manufacturing</div>
+      </div>
+      <div class="footer__info">
+        <strong>[Your Name] — Edit in about.html</strong>
+        Module: 6E7V0013 Digital Manufacturing<br>
+        Manchester Metropolitan University<br>
+        Academic Year 2025–26
+      </div>
+      <div class="footer__divider"></div>
+      <div class="footer__bottom">
+        <span>© 2026 [Your Name]. All rights reserved.</span>
+        <span>MEng / MSc Engineering | Manchester Met</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
