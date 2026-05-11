@@ -1,290 +1,571 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Digital Manufacturing Blog — 6E7V0013 | Manchester Met</title>
-  <meta name="description" content="A reflective blog documenting the digital manufacturing journey for module 6E7V0013 at Manchester Metropolitan University. Covering 3D printing, metrology, plant simulation, and Industry 4.0." />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🏭</text></svg>" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Manufacturing Blog — 6E7V0013</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #1a1a1a;
+      background: #fff;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 64px 24px 56px;
+      text-align: center;
+    }
+    .hero .tag {
+      font-family: monospace;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(26px, 5vw, 44px);
+      font-weight: bold;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero .subtitle {
+      font-size: 18px;
+      color: #ccc;
+      max-width: 620px;
+      margin: 0 auto 24px;
+    }
+    .hero .meta {
+      font-size: 14px;
+      color: #888;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      border-bottom: 1px solid #e0e0e0;
+      padding: 40px 0;
+    }
+    .about h2 {
+      font-size: 13px;
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      margin-bottom: 12px;
+    }
+    .about p {
+      color: #333;
+    }
+
+    /* ── POSTS ── */
+    .posts { padding: 24px 0 80px; }
+
+    .post {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 40px 36px;
+      margin-bottom: 40px;
+    }
+
+    .post-header {
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+    .post-week {
+      font-family: monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      margin-bottom: 8px;
+    }
+    .post-date {
+      font-size: 13px;
+      color: #aaa;
+      margin-top: 6px;
+    }
+    .post h2 {
+      font-size: clamp(20px, 3vw, 26px);
+      line-height: 1.25;
+      font-weight: bold;
+      color: #111;
+    }
+
+    .post p {
+      margin-bottom: 16px;
+      color: #222;
+    }
+
+    /* ── PLACEHOLDER BOXES ── */
+    .placeholder {
+      border: 2px dashed #bbb;
+      border-radius: 4px;
+      background: #f7f7f7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px;
+      color: #999;
+      font-family: monospace;
+      font-size: 13px;
+      margin: 20px 0;
+      min-height: 180px;
+    }
+    .placeholder .ph-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .placeholder.tall { min-height: 240px; }
+    .placeholder.video { min-height: 220px; }
+
+    .placeholder-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    @media (max-width: 540px) {
+      .placeholder-row { grid-template-columns: 1fr; }
+      .post { padding: 28px 20px; }
+    }
+
+    /* ── INSET CARD ── */
+    .inset {
+      background: #e6f6f5;
+      border-left: 4px solid #2a9d8f;
+      border-radius: 0 4px 4px 0;
+      padding: 20px 24px;
+      margin: 28px 0;
+    }
+    .inset h4 {
+      font-size: 12px;
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #2a9d8f;
+      margin-bottom: 10px;
+    }
+    .inset .placeholder {
+      min-height: 120px;
+      background: #d4efed;
+      border-color: #9cd4cf;
+      margin: 10px 0 6px;
+    }
+    .inset p {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 0;
+    }
+
+    /* ── REFERENCES ── */
+    .references {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+    .references h3 {
+      font-size: 13px;
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      margin-bottom: 12px;
+    }
+    .references ol {
+      padding-left: 20px;
+    }
+    .references li {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #f4f4f4;
+      border-top: 1px solid #ddd;
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav__inner">
-    <a class="nav__brand" href="index.html">Digital<span>Mfg</span> Blog</a>
-    <div class="nav__links">
-      <a href="index.html" class="active">Home</a>
-      <a href="posts/week1.html">Posts</a>
-      <a href="about.html">About</a>
-    </div>
-    <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="3" y1="6" x2="21" y2="6"/>
-        <line x1="3" y1="12" x2="21" y2="12"/>
-        <line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
-    </button>
-  </div>
-  <div class="nav__mobile" id="nav-mobile" role="menu">
-    <a href="index.html">Home</a>
-    <a href="posts/week1.html">Week 1 — Introduction</a>
-    <a href="posts/week2.html">Week 2 — FESTO CP Lab</a>
-    <a href="posts/week3.html">Week 3 — 3D Printing</a>
-    <a href="posts/week4.html">Week 4 — Metrology</a>
-    <a href="posts/week5.html">Week 5 — Process Capability</a>
-    <a href="posts/week6.html">Week 6 — Reverse Engineering</a>
-    <a href="posts/week7.html">Week 7 — Plant Simulation</a>
-    <a href="posts/week8.html">Week 8 — 50,000 Target</a>
-    <a href="posts/week9.html">Week 9 — Lessons Learnt</a>
-    <a href="about.html">About</a>
-  </div>
-</nav>
+<!-- ════════════════════════════════════ HERO ════════════════════════════════════ -->
+<header class="hero">
+  <p class="tag">6E7V0013 — Digital Manufacturing &nbsp;|&nbsp; Manchester Metropolitan University</p>
+  <h1>Manufacturing Phone Casings<br>for Phones-R-Us</h1>
+  <p class="subtitle">A semester-long blog documenting additive manufacturing, metrology, assembly testing, and plant simulation in pursuit of 50,000 phones per year.</p>
+  <p class="meta">[Your Name] &nbsp;·&nbsp; MEng / MSc Digital Design and Manufacturing &nbsp;·&nbsp; 2025–26</p>
+</header>
 
-<!-- HERO -->
-<section class="hero">
+<!-- ════════════════════════════════════ ABOUT ════════════════════════════════════ -->
+<section class="about">
   <div class="container">
-    <div class="hero__eyebrow">6E7V0013 — Digital Manufacturing</div>
-    <h1 class="hero__title fade-up fade-up--1">
-      Manufacturing <em>Phones-R-Us</em>:<br>A Digital Journey
-    </h1>
-    <p class="hero__intro fade-up fade-up--2">
-      A semester-long reflective blog documenting my work as a supplier of 3D-printed phone casings — exploring additive manufacturing, metrology, Industry 4.0, and Tecnomatix plant simulation to hit a target of <strong>50,000 phones per year</strong>.
-    </p>
-    <div class="hero__meta fade-up fade-up--3">
-      <span class="badge badge--teal">MSc Digital Design &amp; Manufacturing</span>
-      <span class="badge badge--teal">Manchester Metropolitan University</span>
-      <span class="badge badge--ink">2025–26</span>
-    </div>
+    <h2>About</h2>
+    <p>[Placeholder: two sentences about yourself and your programme. For example — I am a postgraduate student on the MSc Digital Design and Manufacturing programme at Manchester Met. This blog documents my work on module 6E7V0013, in which I take the role of a specialist additive manufacturer contracted by Phones-R-Us to design, print, test, and simulate production of modular mobile phone casings.]</p>
   </div>
 </section>
 
-<!-- ABOUT STRIP -->
-<section style="background: var(--teal); color: white; padding: var(--space-l) 0;">
-  <div class="container" style="display: flex; flex-wrap: wrap; gap: var(--space-l); align-items: center; justify-content: space-between;">
-    <div>
-      <div style="font-size:.75rem; letter-spacing:.12em; text-transform:uppercase; opacity:.7; margin-bottom:.25rem;">The Challenge</div>
-      <div style="font-family: var(--serif); font-size:1.4rem; line-height:1.2;">
-        9 weeks. Two phone casings.<br>One production target.
-      </div>
-    </div>
-    <div style="display: flex; gap: var(--space-xl); flex-wrap: wrap;">
-      <div style="text-align: center;">
-        <div style="font-family:var(--serif); font-size:2.2rem; line-height:1;">50,000</div>
-        <div style="font-size:.75rem; opacity:.7; letter-spacing:.06em; text-transform:uppercase;">Phones / Year</div>
-      </div>
-      <div style="text-align: center;">
-        <div style="font-family:var(--serif); font-size:2.2rem; line-height:1;">6</div>
-        <div style="font-size:.75rem; opacity:.7; letter-spacing:.06em; text-transform:uppercase;">Assembly Stations</div>
-      </div>
-      <div style="text-align: center;">
-        <div style="font-family:var(--serif); font-size:2.2rem; line-height:1;">9</div>
-        <div style="font-size:.75rem; opacity:.7; letter-spacing:.06em; text-transform:uppercase;">Blog Posts</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- POST GRID -->
-<section class="posts-section">
+<!-- ════════════════════════════════════ POSTS ════════════════════════════════════ -->
+<main class="posts">
   <div class="container">
-    <div class="posts-section__header">
-      <h2 class="posts-section__heading">All Posts</h2>
-      <span class="posts-section__count">9 entries — Feb to May 2026</span>
-    </div>
 
-    <div class="post-grid">
+    <!-- ── WEEK 1 ── -->
+    <article class="post" id="week-1">
+      <header class="post-header">
+        <p class="post-week">Week 1</p>
+        <h2>Introduction &amp; the Challenge</h2>
+        <p class="post-date">3 February 2026</p>
+      </header>
 
-      <!-- Week 1 -->
-      <article class="card">
-        <div class="card__thumb">
-          <span class="card__thumb-week">Week 1</span>
-          <span class="card__thumb-label">📋 Introduction</span>
-        </div>
-        <div class="card__body">
-          <div class="card__meta">
-            <span>13 Feb 2026</span>
-            <span class="card__meta-dot"></span>
-            <span>4 min read</span>
-          </div>
-          <h3 class="card__title">Introduction &amp; Blog Setup — The Phones-R-Us Challenge</h3>
-          <p class="card__excerpt">Setting the scene: what it means to be a plastic casing manufacturer in an Industry 4.0 world. The brief, the stakeholders, and my plan of attack for the semester.</p>
-          <a class="card__link" href="posts/week1.html">Read post</a>
-        </div>
-      </article>
+      <p>This week marked the beginning of the Phones-R-Us project. The brief is clear: produce top and bottom phone casings using additive manufacturing processes, with samples ready for testing and validation within nine weeks. The casings must fit the master parts produced by a separate supplier and pass through the FESTO CP lab assembly line without fault. The nine-week window is tight, and the dimensional tolerances on the engineering drawings leave little room for error.</p>
 
-      <!-- Week 2 -->
-      <article class="card">
-        <div class="card__thumb" style="background: #e0f0f0;">
-          <span class="card__thumb-week">Week 2</span>
-          <span class="card__thumb-label">🏭 FESTO Lab</span>
-        </div>
-        <div class="card__body">
-          <div class="card__meta">
-            <span>20 Feb 2026</span>
-            <span class="card__meta-dot"></span>
-            <span>5 min read</span>
-          </div>
-          <h3 class="card__title">First Look at the FESTO CP Lab — 6 Stations Observed</h3>
-          <p class="card__excerpt">Observing the physical phone assembly line for the first time. Breaking down each of the six stations, cycle times, and what this means for our simulation later in the module.</p>
-          <a class="card__link" href="posts/week2.html">Read post</a>
-        </div>
-      </article>
+      <p>I received the engineering drawings for the bottom casing and began studying the critical dimensions and tolerances. The top casing presents a different challenge: no drawings are supplied, so I will need to reverse-engineer the geometry from the master part using scanning technology. My first task was to identify which dimensions are most likely to cause fit failures on the assembly line, and to plan the print orientation and support strategy around those constraints.</p>
 
-      <!-- Week 3 -->
-      <article class="card">
-        <div class="card__thumb" style="background: #dff0ec;">
-          <span class="card__thumb-week">Week 3</span>
-          <span class="card__thumb-label">🖨️ 3D Printing</span>
-        </div>
-        <div class="card__body">
-          <div class="card__meta">
-            <span>27 Feb 2026</span>
-            <span class="card__meta-dot"></span>
-            <span>6 min read</span>
-          </div>
-          <h3 class="card__title">3D Printing — Machine Selection &amp; First Bottom Casings</h3>
-          <p class="card__excerpt">Selecting a printer from the available fleet, interpreting the engineering drawing for the bottom casing, and producing our first prototypes. What went right and what did not.</p>
-          <a class="card__link" href="posts/week3.html">Read post</a>
-        </div>
-      </article>
+      <p>Early decisions around CAD modelling focused on how the two casings mate. The snapping mechanism is a key concern: it needs enough flex to click together without breaking, but enough rigidity to stay closed. I began sketching several snap-fit geometries to test. Print orientation will affect how the snap arms behave, since layer lines introduce anisotropy, so this is a decision I need to lock in early.</p>
 
-      <!-- Week 4 -->
-      <article class="card">
-        <div class="card__thumb" style="background: #e8eef5;">
-          <span class="card__thumb-week">Week 4</span>
-          <span class="card__thumb-label">📐 Metrology</span>
-        </div>
-        <div class="card__body">
-          <div class="card__meta">
-            <span>6 Mar 2026</span>
-            <span class="card__meta-dot"></span>
-            <span>5 min read</span>
-          </div>
-          <h3 class="card__title">Metrology &amp; Scanning — Are Our Parts in Tolerance?</h3>
-          <p class="card__excerpt">Using scanning and metrology equipment to measure printed parts against the drawing. Understanding deviation, tolerance bands, and whether our casing will fit the master assembly.</p>
-          <a class="card__link" href="posts/week4.html">Read post</a>
-        </div>
-      </article>
+      <p>The broader context for this project sits within Industry 4.0 frameworks. Additive manufacturing allows rapid iteration in a way that traditional injection moulding does not. A design change that would take weeks in a tooling-based process can be tested the next day with a 3D printer. This iterative capacity is one of the core arguments for digital manufacturing in low-to-medium volume production scenarios like this one.</p>
 
-      <!-- Week 5 -->
-      <article class="card">
-        <div class="card__thumb" style="background: #f0ece0;">
-          <span class="card__thumb-week">Week 5</span>
-          <span class="card__thumb-label">📊 Process Capability</span>
-        </div>
-        <div class="card__body">
-          <div class="card__meta">
-            <span>13 Mar 2026</span>
-            <span class="card__meta-dot"></span>
-            <span>6 min read</span>
-          </div>
-          <h3 class="card__title">Process Capability — Cp, Cpk and Managing Variability</h3>
-          <p class="card__excerpt">Printing multiple parts and running statistical analysis. What do Cp and Cpk tell us about our 3D printer's repeatability, and what does this mean for a multi-supplier environment?</p>
-          <a class="card__link" href="posts/week5.html">Read post</a>
-        </div>
-      </article>
-
-      <!-- Week 6 -->
-      <article class="card">
-        <div class="card__thumb" style="background: #ede0f0;">
-          <span class="card__thumb-week">Week 6</span>
-          <span class="card__thumb-label">🔍 Reverse Engineering</span>
-        </div>
-        <div class="card__body">
-          <div class="card__meta">
-            <span>20 Mar 2026</span>
-            <span class="card__meta-dot"></span>
-            <span>5 min read</span>
-          </div>
-          <h3 class="card__title">Reverse Engineering the Top Casing — Scan to Print</h3>
-          <p class="card__excerpt">No drawing was provided for the top casing. This post covers the scan-to-CAD-to-print workflow, the challenges of reverse engineering a physical artefact, and the results.</p>
-          <a class="card__link" href="posts/week6.html">Read post</a>
-        </div>
-      </article>
-
-      <!-- Week 7 -->
-      <article class="card">
-        <div class="card__thumb" style="background: #e0f0e8;">
-          <span class="card__thumb-week">Week 7</span>
-          <span class="card__thumb-label">🖥️ Simulation</span>
-        </div>
-        <div class="card__body">
-          <div class="card__meta">
-            <span>3 Apr 2026</span>
-            <span class="card__meta-dot"></span>
-            <span>7 min read</span>
-          </div>
-          <h3 class="card__title">Tecnomatix Plant Simulation — Building the Virtual Assembly Line</h3>
-          <p class="card__excerpt">Modelling the FESTO CP lab's six stations in Tecnomatix. Defining cycle times, buffers, and resource constraints to create a digital twin of the phone assembly process.</p>
-          <a class="card__link" href="posts/week7.html">Read post</a>
-        </div>
-      </article>
-
-      <!-- Week 8 -->
-      <article class="card">
-        <div class="card__thumb" style="background: #f0e8e0;">
-          <span class="card__thumb-week">Week 8</span>
-          <span class="card__thumb-label">🎯 50,000 Target</span>
-        </div>
-        <div class="card__body">
-          <div class="card__meta">
-            <span>24 Apr 2026</span>
-            <span class="card__meta-dot"></span>
-            <span>8 min read</span>
-          </div>
-          <h3 class="card__title">Hitting 50,000 Phones/Year — Optimisation &amp; Printer Fleet Sizing</h3>
-          <p class="card__excerpt">Optimising the simulation model and running scenarios to hit the 50,000 target. Calculating how many 3D printers are needed based on cycle time and working patterns.</p>
-          <a class="card__link" href="posts/week8.html">Read post</a>
-        </div>
-      </article>
-
-      <!-- Week 9 -->
-      <article class="card">
-        <div class="card__thumb" style="background: #e8e0e0;">
-          <span class="card__thumb-week">Week 9</span>
-          <span class="card__thumb-label">💡 Reflection</span>
-        </div>
-        <div class="card__body">
-          <div class="card__meta">
-            <span>13 May 2026</span>
-            <span class="card__meta-dot"></span>
-            <span>6 min read</span>
-          </div>
-          <h3 class="card__title">Lessons Learnt &amp; Reflection — Digital Manufacturing in Practice</h3>
-          <p class="card__excerpt">A final reflection on the entire module: multi-supplier variability, the power of simulation, what I would do differently, and the role of Industry 4.0 in modern manufacturing.</p>
-          <a class="card__link" href="posts/week9.html">Read post</a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer__inner">
-      <div>
-        <div class="footer__brand">Digital<span>Mfg</span> Blog</div>
-        <div class="footer__tagline">A reflective learning journal for 6E7V0013 Digital Manufacturing</div>
+      <div class="placeholder tall">
+        <span class="ph-icon">📐</span>
+        <strong>[ Photo: Engineering drawing or CAD model — Week 1 ]</strong><br>Add your image here. Suggested: screenshot of the bottom casing drawing or early CAD model.
       </div>
-      <div class="footer__info">
-        <strong>[Your Name] — Edit in about.html</strong>
-        Module: 6E7V0013 Digital Manufacturing<br>
-        Manchester Metropolitan University<br>
-        Academic Year 2025–26
+
+      <div class="references">
+        <h3>References</h3>
+        <ol>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+        </ol>
       </div>
-      <div class="footer__divider"></div>
-      <div class="footer__bottom">
-        <span>© 2026 [Your Name]. All rights reserved.</span>
-        <span>MEng / MSc Engineering | Manchester Met</span>
+    </article>
+
+    <!-- ── WEEK 2 ── -->
+    <article class="post" id="week-2">
+      <header class="post-header">
+        <p class="post-week">Week 2</p>
+        <h2>CAD Complete &amp; First Print Sent</h2>
+        <p class="post-date">10 February 2026</p>
+      </header>
+
+      <p>CAD modelling for both casings is complete. The bottom casing was modelled from the engineering drawings, with particular care given to the mating surfaces and the critical dimension on the side wall. The top casing was modelled from measurements taken from the master part, cross-checked with digital callipers. Both models were exported as STL files and loaded into the slicer for the first time this week.</p>
+
+      <p>Slicing decisions at this stage were relatively conservative. I selected a standard 0.2mm layer height, 20% infill with a gyroid pattern for the internal structure, and enabled supports only where the geometry overhangs beyond 45 degrees. Print orientation was chosen to align the snap arms with the XY plane, minimising the effect of layer anisotropy on the features most likely to experience stress during assembly. The first prototype was sent to the printer by the end of the week.</p>
+
+      <p>The first print came off the machine with visible layer lines on the top surface and some support scarring on the underside of the snap arms. These are expected at this stage. The purpose of this print is not to achieve a final-quality part, but to confirm that the geometry is broadly correct and that the support strategy is workable. Both casings came off the bed without warping, which was a positive early sign for bed adhesion and temperature calibration on this particular printer.</p>
+
+      <p>Documenting this first print carefully matters. Iteration in additive manufacturing is only useful if each run is tied to a specific hypothesis: a changed parameter and an expected outcome. From this point on, I am logging each print with its slicer settings, the change made from the previous run, and the observed result. This mirrors the kind of process control thinking that underpins machine qualification in a production context.</p>
+
+      <div class="placeholder tall">
+        <span class="ph-icon">🖨️</span>
+        <strong>[ Photo: First raw print off the machine — Week 2 ]</strong><br>Add your image here. Suggested: photo of both casings fresh off the print bed, before support removal.
       </div>
-    </div>
-  </div>
+
+      <div class="references">
+        <h3>References</h3>
+        <ol>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- ── WEEK 3 ── -->
+    <article class="post" id="week-3">
+      <header class="post-header">
+        <p class="post-week">Week 3</p>
+        <h2>Print Iteration — Supports &amp; Snap Fit</h2>
+        <p class="post-date">17 February 2026</p>
+      </header>
+
+      <p>This week was focused on two problems that the first print made visible: support removal damage and snap-fit geometry. The supports used in Week 2 left scarring on the underside of the snap arms that would affect how cleanly the casings click together. I ran two further prints this week, each with a modified support strategy, to find a configuration that balances printability with clean removal.</p>
+
+      <p>[Placeholder: Add your own observations here about which support settings you tried, what the results were, and which configuration you settled on. For example — reducing support density from 15% to 8% improved removal ease with no measurable change in surface quality beneath the overhang. Tree supports with a 3mm tip-to-part distance left the cleanest surface of the three configurations tested.]</p>
+
+      <p>The snap-fit geometry required a separate set of iterations. The initial design used a rectangular cantilever arm with a triangular catch profile. Under test, the arm deflected as intended but the catch profile did not engage cleanly, requiring more force than expected to close. I modified the catch angle from 30 to 45 degrees and reduced the arm thickness by 0.3mm. The revised geometry clicked together with noticeably less force and released reliably under finger pressure.</p>
+
+      <p>Process capability in additive manufacturing depends on more than just the design file. The printer's dimensional accuracy, temperature stability, and material batch all introduce variation. This week's work illustrated that even small geometry changes, sub-millimetre in scale, can have a functional impact on the assembled product. Documenting each iteration rigorously is the only way to build confidence that a chosen parameter set will reproduce reliably.</p>
+
+      <div class="placeholder-row">
+        <div class="placeholder">
+          <span class="ph-icon">🔩</span>
+          <strong>[ Photo: Print with supports still attached ]</strong><br>Before support removal — show the support structure.
+        </div>
+        <div class="placeholder">
+          <span class="ph-icon">✅</span>
+          <strong>[ Photo: Snap-fit test — casings clicked together ]</strong><br>Show the two halves assembled.
+        </div>
+      </div>
+
+      <div class="inset">
+        <h4>Print Progress This Week</h4>
+        <div class="placeholder">
+          <span class="ph-icon">📸</span>
+          <strong>[ Photo: This week's print ]</strong>
+        </div>
+        <p>[Setting changed this week: e.g. Support density reduced from 15% to 8%.] &nbsp;[Result: e.g. Cleaner removal, no visible surface damage.]</p>
+      </div>
+
+      <div class="references">
+        <h3>References</h3>
+        <ol>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- ── WEEK 4 ── -->
+    <article class="post" id="week-4">
+      <header class="post-header">
+        <p class="post-week">Week 4</p>
+        <h2>Metrology &amp; the FESTO Measuring Station</h2>
+        <p class="post-date">24 February 2026</p>
+      </header>
+
+      <p>This week the casing went through the FESTO CP lab for the first time. The lab replicates the Phones-R-Us assembly process across six stations: the measuring station is Station 5, and it checks one critical dimension on the bottom casing automatically. The lower control limit for this dimension is 1.6mm, the upper control limit is 2.2mm. My part measured 1.9mm and passed. Seeing the part flow through all six stations without fault was a significant milestone, confirming that the print process is currently within tolerance.</p>
+
+      <p>Before the FESTO test, I carried out manual metrology on several prints from the same batch using digital callipers and a surface plate. The measurements showed variation between parts of up to 0.12mm on the critical dimension. This is within the tolerance band, but the spread is wide enough that if the process drifts in either direction, parts will start failing the automated check at Station 5. Understanding this variation is part of what makes process capability analysis meaningful: a single passing part does not confirm a capable process.</p>
+
+      <p>Scanning technology offers a more complete picture of part geometry than spot measurement with callipers. A full surface scan produces a deviation map that shows where the printed geometry diverges from the CAD nominal across the entire part. [Placeholder: Add notes on any scanning work carried out this week, which scanner was used, and what the deviation map showed.] This kind of data is what separates a qualified manufacturing process from one that is merely producing passing parts on the day.</p>
+
+      <p>The FESTO lab also made visible how the casing interacts with the assembly line tooling. The gripper at the pick station, the press tool at Station 3, and the conveyor between stations all place different mechanical demands on the part. A casing that passes dimensional inspection can still fail on the line if its geometry creates problems for automated handling. Observing the full cycle gave me a clearer picture of where the design margins are genuinely tight.</p>
+
+      <div class="placeholder video">
+        <span class="ph-icon">🎥</span>
+        <strong>[ Photo / Video: Casing on the FESTO CP lab line ]</strong><br>Add your image or video embed here. Suggested: casing moving through Station 5 (measuring station) or a short clip of the full 6-station cycle.
+      </div>
+
+      <div class="inset">
+        <h4>Print Progress This Week</h4>
+        <div class="placeholder">
+          <span class="ph-icon">📸</span>
+          <strong>[ Photo: This week's print ]</strong>
+        </div>
+        <p>[Setting changed this week: e.g. Layer height adjusted from 0.2mm to 0.15mm.] &nbsp;[Result: e.g. Improved dimensional accuracy on the critical side-wall feature.]</p>
+      </div>
+
+      <div class="references">
+        <h3>References</h3>
+        <ol>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- ── WEEK 5 ── -->
+    <article class="post" id="week-5">
+      <header class="post-header">
+        <p class="post-week">Week 5</p>
+        <h2>Print Iteration — Ironing &amp; Surface Finish</h2>
+        <p class="post-date">3 March 2026</p>
+      </header>
+
+      <p>Surface finish became a priority this week. The top casing has a large flat face that is visible and tactile in the assembled phone, and previous prints showed visible layer lines across it. I enabled the ironing setting in the slicer, which causes the nozzle to make an additional slow pass over the top surface with reduced flow, effectively pressing down the peaks of the deposited material. The difference was visible immediately on the first ironed print.</p>
+
+      <p>Ironing adds time to each print. For the top casing, enabling ironing at a 0.1mm line spacing and 15% flow rate added approximately [X] minutes to a print that previously took [Y] minutes. Whether that trade-off is acceptable depends on the production context: in a batch-production scenario targeting 50,000 units per year, print time per part is a direct input to the capacity calculation in the plant simulation. Any increase in cycle time either requires more printers or reduces achievable volume.</p>
+
+      <div class="placeholder-row">
+        <div class="placeholder tall">
+          <span class="ph-icon">🔲</span>
+          <strong>[ Photo: Before ironing ]</strong><br>Top surface without ironing — layer lines visible.
+        </div>
+        <div class="placeholder tall">
+          <span class="ph-icon">✨</span>
+          <strong>[ Photo: After ironing ]</strong><br>Top surface with ironing enabled — smoother finish.
+        </div>
+      </div>
+
+      <p>Surface quality also affects how the casing performs on the FESTO assembly line. The press station applies a controlled force to seat a component into the casing. If the mating surface is uneven due to layer lines, the seating depth can vary between parts, introducing inconsistency downstream. A smoother top surface reduces this source of variation. This is an example of a print parameter decision that has consequences beyond aesthetics.</p>
+
+      <p>[Placeholder: Add your own observations on the ironing results. For example — the ironed surface showed a 40% reduction in measured Ra surface roughness compared to the non-ironed print, measured using the lab's contact profilometer. The visual improvement was significant, but the tactile improvement was more modest than expected. Further trials with adjusted flow rate are planned.]</p>
+
+      <div class="inset">
+        <h4>FESTO Test This Week</h4>
+        <div class="placeholder">
+          <span class="ph-icon">🏭</span>
+          <strong>[ Photo: FESTO test this week ]</strong>
+        </div>
+        <p>[Note: e.g. Ironed top casing passed all six stations. Press station seating depth was consistent across three consecutive test cycles.]</p>
+      </div>
+
+      <div class="references">
+        <h3>References</h3>
+        <ol>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- ── WEEK 6 ── -->
+    <article class="post" id="week-6">
+      <header class="post-header">
+        <p class="post-week">Week 6</p>
+        <h2>Multi-Supplier Variability &amp; Quality</h2>
+        <p class="post-date">10 March 2026</p>
+      </header>
+
+      <p>Phones-R-Us uses multiple suppliers for the same component. My parts need to be interchangeable with casings produced by other manufacturers, all working from the same drawing. This week I examined what that requirement actually means in practice. Two suppliers can both produce parts that individually pass dimensional inspection and still produce parts that do not fit together reliably, because their process variation distributions occupy different regions of the tolerance band.</p>
+
+      <p>A Failure Mode and Effects Analysis (PFMEA) for the bottom casing identified three critical failure modes at the assembly stage: insufficient snap engagement, excess grip force at the pick station, and seating depth variation at the press station. [Placeholder: Add your PFMEA table here, or describe the RPN scores and the mitigations identified for the top two failure modes.] The PFMEA process forces you to think about failure before it happens on the line, which is particularly valuable when you cannot run the actual assembly process at full volume to observe failure rates.</p>
+
+      <p>Digital manufacturing tools address the multi-supplier variability problem in two ways. First, scanning and metrology generate precise data about each supplier's actual output distribution, not just whether individual parts pass or fail. Second, plant simulation allows you to model what happens to throughput when a proportion of incoming parts are at the edge of tolerance. A supplier whose parts cluster near the upper limit of the snap-fit clearance will create more assembly failures than one whose parts cluster near the nominal, even if both suppliers have a 100% pass rate on dimensional inspection.</p>
+
+      <p>Machine qualification is the upstream answer to downstream variability. Qualifying a printer means establishing, through systematic measurement, what its actual dimensional capability is across the range of features you need to produce. A qualified machine gives you a process capability index (Cpk) for each critical dimension. [Placeholder: Add your machine qualification data here if available, including the Cpk values for the critical dimension measured at the FESTO station.] Without this data, you are relying on individual part inspection rather than process control.</p>
+
+      <div class="placeholder">
+        <span class="ph-icon">📊</span>
+        <strong>[ Placeholder: PFMEA table or process capability chart ]</strong><br>Add your PFMEA table, Cpk data, or a measurement distribution chart here.
+      </div>
+
+      <div class="inset">
+        <h4>FESTO Test This Week</h4>
+        <div class="placeholder">
+          <span class="ph-icon">🏭</span>
+          <strong>[ Photo: FESTO test this week ]</strong>
+        </div>
+        <p>[Note: e.g. Tested a batch of three casings from different print runs. All three passed Station 5, but measurement values ranged from 1.7mm to 2.0mm, illustrating within-batch variation.]</p>
+      </div>
+
+      <div class="references">
+        <h3>References</h3>
+        <ol>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- ── WEEK 7 ── -->
+    <article class="post" id="week-7">
+      <header class="post-header">
+        <p class="post-week">Week 7</p>
+        <h2>Tecnomatix Plant Simulation — Building the Model</h2>
+        <p class="post-date">17 March 2026</p>
+      </header>
+
+      <p>This week I began building the virtual assembly line in Tecnomatix Plant Simulation. The physical FESTO CP lab has six stations: a Picking Station, a Light Station, a Press Station, an Oven Station, a Measuring Station, and an Output Station. Each station was replicated at a process level in the simulation, with cycle times drawn from observations made on the physical line. The model also includes the 3D printer selected for production, which feeds parts into the line.</p>
+
+      <p>Configuring the simulation required decisions about how to represent resources. I added a Worker Pool to handle the manual operations, a Shift Calendar defining the working hours and break patterns, and an Experiment Manager to automate the process of running multiple scenarios with different parameter combinations. The Bottleneck Analyzer was configured to run in parallel with the main simulation, identifying which station is constraining throughput on each run.</p>
+
+      <p>Inputting cycle times from the physical line into the simulation was not straightforward. The FESTO lab cycle times are fixed for the physical stations, but the 3D printer's cycle time depends on part geometry, layer height, infill density, and the number of parts per build plate. I measured the print time per casing for the current slicer configuration and used this as the input for the printer resource in the simulation. The number of printers in the model became a variable to optimise.</p>
+
+      <p>Initial runs with a single printer showed immediately that the printer was the bottleneck. The six assembly stations have combined cycle times that can process parts faster than a single printer can produce them. This is a common finding in additive manufacturing production scenarios: the printer throughput, not the assembly line capacity, sets the ceiling. Addressing this means adding printers, reducing print time per part, or both. The simulation makes it straightforward to test each option without committing capital expenditure.</p>
+
+      <div class="placeholder tall">
+        <span class="ph-icon">🖥️</span>
+        <strong>[ Screenshot: Tecnomatix model mid-build — Week 7 ]</strong><br>Add your screenshot of the simulation layout here. Show the six stations, resources, and connections.
+      </div>
+
+      <div class="references">
+        <h3>References</h3>
+        <ol>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- ── WEEK 8 ── -->
+    <article class="post" id="week-8">
+      <header class="post-header">
+        <p class="post-week">Week 8</p>
+        <h2>Hitting 50,000 Phones Per Year — Results</h2>
+        <p class="post-date">24 March 2026</p>
+      </header>
+
+      <p>The simulation ran over a 365-day period with the final optimised configuration and produced 52,640 units. The Phones-R-Us target of 50,000 phones per year is met, with 2,640 units of headroom. Reaching this figure required a sequence of deliberate optimisation steps, guided by the Bottleneck Analyzer rather than by guesswork.</p>
+
+      <p>The path from the initial single-printer model to the final configuration involved three main changes. First, the printer count was increased. The Bottleneck Analyzer confirmed the printer as the primary constraint on every early run, so adding printers was the highest-impact lever available. Second, I adjusted the Shift Calendar: the initial configuration assumed a single 8-hour shift with a 30-minute break and no weekend operation. Extending to a 16-hour operating day, still within realistic assumptions for a small production facility, made a substantial difference to annual throughput. Third, I reviewed the cycle times at each station against the bottleneck data. The Oven Station showed secondary congestion on longer runs, and a small adjustment to the oven dwell time, informed by the physical line data, resolved this.</p>
+
+      <p>The Experiment Manager allowed me to run these parameter combinations systematically. Rather than changing one variable at a time and waiting for each simulation run to complete, I configured a parameter space with defined ranges for printer count and shift length, and the Experiment Manager ran all combinations overnight. The 52,640 result came from the combination identified by this automated search as the highest-throughput configuration that stays within the resource constraints defined in the brief.</p>
+
+      <p>The 52,640 figure is a modelled estimate, not a measured output. The model's accuracy depends on how well the input cycle times represent the real process, and on assumptions about uptime, reject rates, and shift adherence. A production-ready model would incorporate reject rates from the FESTO measuring station data, printer downtime estimates from machine manufacturer data, and a more detailed shift pattern. For the purposes of this assessment, the model demonstrates that the 50,000 target is achievable under realistic operating assumptions.</p>
+
+      <div class="placeholder tall">
+        <span class="ph-icon">📈</span>
+        <strong>[ Screenshot: Final Tecnomatix simulation result — 52,640 units/year ]</strong><br>Add your final simulation screenshot here. Show the output figure, resource utilisation data, or Bottleneck Analyzer results.
+      </div>
+
+      <div class="references">
+        <h3>References</h3>
+        <ol>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- ── WEEK 9 ── -->
+    <article class="post" id="week-9">
+      <header class="post-header">
+        <p class="post-week">Week 9</p>
+        <h2>Lessons Learnt &amp; Reflection</h2>
+        <p class="post-date">31 March 2026</p>
+      </header>
+
+      <p>Nine weeks of printing, measuring, testing, and simulating produced a set of conclusions that are harder to reach by reading about digital manufacturing than by doing it. The most consistent finding across every stage of the project is that process documentation is the real product. The physical casings matter, the simulation results matter, but neither is worth much without the records of what was changed, why, and what happened as a result.</p>
+
+      <p>The multi-supplier variability challenge is not solved by tolerances alone. Two suppliers can both produce parts that pass inspection individually and still create problems when their parts are mixed on an assembly line. The PFMEA process made this concrete: it forced me to think about failure modes that only appear at the system level, not at the individual part level. Plant simulation extends this thinking further, allowing you to model what happens to throughput when reject rates change, or when a supplier's process drifts. These are not hypothetical concerns; they are the everyday reality of contract manufacturing.</p>
+
+      <p>The plant simulation confirmed a result that is obvious in retrospect but easy to underestimate: printer throughput, not assembly line capacity, is the binding constraint for additive manufacturing at the volumes Phones-R-Us requires. The FESTO line can process parts faster than any single printer can supply them. Reaching 52,640 units per year required a multi-printer configuration and a shift pattern that keeps those printers running for a sustained portion of each day. These are capital and operational decisions. The simulation gives you the data to make them before committing resources, which is the core value proposition of digital manufacturing tools in an Industry 4.0 context.</p>
+
+      <p>[Placeholder: Add your own personal reflection here. What was the most surprising finding from the physical printing work? What would you do differently if you started the project again? How has this module changed how you think about manufacturing processes or digital tools?]</p>
+
+      <div class="placeholder">
+        <span class="ph-icon">🏁</span>
+        <strong>[ Photo: Final casings — assembled phone ]</strong><br>Add your closing image here. Suggested: the final printed top and bottom casings assembled together, or a photo of the phone on the FESTO line.
+      </div>
+
+      <div class="references">
+        <h3>References</h3>
+        <ol>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+        </ol>
+      </div>
+    </article>
+
+  </div><!-- /container -->
+</main>
+
+<!-- ════════════════════════════════════ FOOTER ════════════════════════════════════ -->
+<footer>
+  <p>6E7V0013 Digital Manufacturing &nbsp;·&nbsp; Manchester Metropolitan University &nbsp;·&nbsp; 2025–26</p>
+  <p style="margin-top:6px;">Lead Assessor: Raul Ochoa Cabrero &nbsp;·&nbsp; [Your Name]</p>
 </footer>
 
-<script src="js/main.js"></script>
 </body>
 </html>
