@@ -385,9 +385,16 @@
 <p>This week was focused on two problems that the first print made visible: support removal damage and snap-fit geometry. I switched from the Prusa MK3S to the Bambu Labs P1S for this round of prints. One of the advantages of the P1S is that its multi-material and automatic support system is significantly better calibrated out of the box, and for this geometry it turned out I didn't need supports or a brim at all. The P1S handled the ledge feature on the underside of the bottom casing without them, which immediately solved the support removal problem from last week.</p>
 
 <p>With supports out of the equation, I turned my attention to surface finish. I enabled ironing this time, running it at 60% speed and 20% flow. Ironing makes a second slow pass over flat top surfaces to press down and smooth out the layer lines. Dizon et al. (2018) note that surface roughness in FDM parts is directly influenced by process parameters, which is exactly what the ironing settings are trying to control. The result was noticeably better than the first print, though not perfectly smooth. Chua and Leong (2014) point out that achieving consistent surface finish in additive manufacturing typically requires multiple iterations of parameter tuning, and this print was no different, the settings will need further tweaking in the next iteration.</p>
+
+       
+<figure style="margin-bottom: 2rem;">
+  <img src="images/bottom-case-no-support.png" alt="Bottom casing printed without supports" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 9 — Bottom casing printed on the Bambu Labs P1S without supports or brim</figcaption>
+</figure>
+
 <figure style="margin-bottom: 2rem;">
   <img src="images/3bottom-case-ironing.png" alt="Bottom casing surface finish with ironing enabled" class="post-img" style="width:100%; height:auto;">
-  <figcaption>Fig. 8 — Bottom casing top surface with ironing enabled at 60% speed and 20% flow. Better than without ironing but not yet consistent enough.</figcaption>
+  <figcaption>Fig. 10 — Bottom casing top surface with ironing enabled at 60% speed and 20% flow. Better than without ironing but not yet consistent enough.</figcaption>
 </figure>
 
 <p>The snap fit needed adjusting too. I moved the locking feature closer and trimmed it down — made the circle smaller and cut it off at the top and bottom. After reprinting, the two halves clicked together properly for the first time.</p>
