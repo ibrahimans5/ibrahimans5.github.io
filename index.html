@@ -387,7 +387,7 @@
 
       
 <div class="print-params">
-  <h3>Print Parameters — Week 2</h3>
+  <h3>Print Parameters — Week 2 (Prusa MK3S)</h3>
   <table class="params-table">
     <thead>
       <tr>
@@ -406,7 +406,7 @@
       </tr>
       <tr>
         <td>Layer height</td>
-        <td>0.2mm</td>
+        <td>0.15mm</td>
       </tr>
       <tr>
         <td>Infill</td>
@@ -436,9 +436,14 @@
         <td>Ironing</td>
         <td>No</td>
       </tr>
+      <tr>
+        <td>Print time</td>
+        <td>6h 44min</td>
+      </tr>
     </tbody>
   </table>
 </div>
+      
 
 <p>With both CAD models complete, I sent them to the Prusa MK3S. I went with 0.2mm layer height, 15% infill, a brim for bed adhesion, and supports enabled for the overhanging geometry on the bottom side of bottom case. The prints ran overnight and both came off the bed with minor warping.</p>
 
@@ -480,6 +485,68 @@
 
 <p>With supports out of the equation, I turned my attention to surface finish. I enabled ironing this time, running it at 60% speed and 20% flow. Ironing makes a second slow pass over flat top surfaces to press down and smooth out the layer lines. Dizon et al. (2018) note that surface roughness in FDM parts is directly influenced by process parameters, which is exactly what the ironing settings are trying to control. The result was noticeably better than the first print, though not perfectly smooth. Chua and Leong (2014) point out that achieving consistent surface finish in additive manufacturing typically requires multiple iterations of parameter tuning, and this print was no different, the settings will need further tweaking in the next iteration.</p>
 
+       <div class="print-params">
+  <h3>Print Parameters — Week 3 (Bambu Labs P1S)</h3>
+  <table class="params-table">
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Printer</td>
+        <td>Bambu Labs P1S</td>
+      </tr>
+      <tr>
+        <td>Material</td>
+        <td>PLA</td>
+      </tr>
+      <tr>
+        <td>Layer height</td>
+        <td>0.2mm</td>
+      </tr>
+      <tr>
+        <td>Infill</td>
+        <td>15%</td>
+      </tr>
+      <tr>
+        <td>Infill pattern</td>
+        <td>Gyroid</td>
+      </tr>
+      <tr>
+        <td>Bed temperature</td>
+        <td>55°C</td>
+      </tr>
+      <tr>
+        <td>Nozzle temperature</td>
+        <td>220°C</td>
+      </tr>
+      <tr>
+        <td>Supports</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Brim</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Ironing</td>
+        <td>Yes — 60% speed, 20% flow</td>
+      </tr>
+      <tr>
+        <td>Print time</td>
+        <td>1h 50min</td>
+      </tr>
+      <tr>
+        <td>Filament used</td>
+        <td>50g</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+       
        
 <figure style="margin-bottom: 2rem;">
   <img src="images/bottom-case-no-support.png" alt="Bottom casing printed without supports" class="post-img" style="width:100%; height:auto;">
