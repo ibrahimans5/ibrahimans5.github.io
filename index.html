@@ -384,26 +384,24 @@
 
 <p>This week was focused on two problems that the first print made visible: support removal damage and snap-fit geometry. I switched from the Prusa MK3S to the Bambu Labs P1S for this round of prints. One of the advantages of the P1S is that its multi-material and automatic support system is significantly better calibrated out of the box, and for this geometry it turned out I didn't need supports or a brim at all. The P1S handled the ledge feature on the underside of the bottom casing without them, which immediately solved the support removal problem from last week.</p>
 
-<p>With supports out of the equation, I turned my attention to surface finish. I enabled ironing this time, running it at 60% speed and 20% flow. Ironing makes a second slow pass over flat top surfaces to press down and smooth out the layer lines. The result was noticeably better than the first print, though not perfectly smooth. There are still some faint lines visible and the finish isn't consistent across the whole surface, so the settings will need further tweaking in the next iteration.</p>
-
+<p>With supports out of the equation, I turned my attention to surface finish. I enabled ironing this time, running it at 60% speed and 20% flow. Ironing makes a second slow pass over flat top surfaces to press down and smooth out the layer lines. Dizon et al. (2018) note that surface roughness in FDM parts is directly influenced by process parameters, which is exactly what the ironing settings are trying to control. The result was noticeably better than the first print, though not perfectly smooth. Chua and Leong (2014) point out that achieving consistent surface finish in additive manufacturing typically requires multiple iterations of parameter tuning, and this print was no different, the settings will need further tweaking in the next iteration.</p>
 <figure style="margin-bottom: 2rem;">
   <img src="images/3bottom-case-ironing.png" alt="Bottom casing surface finish with ironing enabled" class="post-img" style="width:100%; height:auto;">
   <figcaption>Fig. 8 — Bottom casing top surface with ironing enabled at 60% speed and 20% flow. Better than without ironing but not yet consistent enough.</figcaption>
 </figure>
 
-<p>The snap-fit geometry required a separate set of iterations. The initial design used a rectangular cantilever arm with a triangular catch profile. Under test, the arm deflected as intended but the catch profile did not engage cleanly, requiring more force than expected to close. I modified the catch angle from 30 to 45 degrees and reduced the arm thickness by 0.3mm. The revised geometry clicked together with noticeably less force and released reliably under finger pressure.</p>
+<p>The snap fit needed adjusting too. I moved the locking feature closer and trimmed it down — made the circle smaller and cut it off at the top and bottom. After reprinting, the two halves clicked together properly for the first time.</p>
 
-<p>Process capability in additive manufacturing depends on more than just the design file. The printer's dimensional accuracy, temperature stability, and material batch all introduce variation. This week's work illustrated that even small geometry changes, sub-millimetre in scale, can have a functional impact on the assembled product. Switching printers also made a measurable difference — the P1S produced cleaner results with less setup than the Prusa MK3S required. Documenting each iteration rigorously is the only way to build confidence that a chosen parameter set will reproduce reliably.</p>
-
+<p>The main takeaway from this week is that small changes matter. Sub-millimetre adjustments to geometry and minor slicer setting tweaks both had noticeable effects on the final part. Camposeco-Negrete (2020) confirms that FDM parameters such as layer height, speed, and flow rate significantly influence both dimensional accuracy and surface quality. Logging each change is the only way to know what actually made the difference.</p>
+       
       <div class="references">
-        <h3>References</h3>
-        <ol>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-        </ol>
-      </div>
-    </article>
+  <h3>References</h3>
+  <ol>
+    <li>Chua, C. and Leong, K. (2014) <em>3D Printing and Additive Manufacturing: Principles and Applications</em>. 4th edn. World Scientific. Available at: https://doi.org/10.1142/9008 (Accessed: 17 February 2026).</li>
+    <li>Dizon, J., Espera, A., Chen, Q. and Advincula, R. (2018) 'Mechanical characterization of 3D-printed polymers', <em>Additive Manufacturing</em>, 20, pp. 44–67. Available at: https://doi.org/10.1016/j.addma.2017.12.002 (Accessed: 17 February 2026).</li>
+    <li>Camposeco-Negrete, C. (2020) 'Optimization of FDM parameters for improving part quality, productivity and sustainability of the process using Taguchi methodology', <em>Progress in Additive Manufacturing</em>, 5, pp. 347–360. Available at: https://doi.org/10.1007/s40964-020-00135-9 (Accessed: 17 February 2026).</li>
+  </ol>
+</div>
 
     <!-- ── WEEK 4 ── -->
     <article class="post" id="week-4">
