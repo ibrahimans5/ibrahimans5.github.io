@@ -350,14 +350,14 @@
 
 <p>Removing the supports was more difficult than expected. The supports were generated for a small ledge feature on the underside of the bottom casing. The support material had bonded quite aggressively to this area, and getting it out cleanly without marking the surface took more effort than it should. This is something to address in the next iteration, either by adjusting the support interface settings or increasing the Z distance between the support and the part.</p>
 <figure style="margin-bottom: 2rem;">
-  <img src="images/bottomcasesupport.png" alt="Support removal difficulty on bottom casing" class="post-img" style="width:100%; height:auto;">
+  <img src="images/bottomcasesupport.jpeg" alt="Support removal difficulty on bottom casing" class="post-img" style="width:100%; height:auto;">
   <figcaption>Fig. 5 — Support material on the bottom casing after printing, proving difficult to remove cleanly</figcaption>
 </figure>
 
 <p>The inside surface of the bottom casing also highlighted another issue. Without ironing enabled, the top surface finish was rough and uneven. Ironing is a slicer setting that makes a second pass over flat top surfaces to smooth them out, and skipping it on this first print left a finish that would not be acceptable in a production context.</p>
 
 <figure style="margin-bottom: 2rem;">
-  <img src="images/1bottomcaseinside.png" alt="Inside of bottom casing without ironing" class="post-img" style="width:100%; height:auto;">
+  <img src="images/1bottomcaseinside.jpeg" alt="Inside of bottom casing without ironing" class="post-img" style="width:100%; height:auto;">
   <figcaption>Fig. 6 — Inside surface of the bottom casing, printed without ironing enabled</figcaption>
 </figure>
 
@@ -372,15 +372,6 @@
 
 <p>The overall dimensions on both parts look broadly correct on first inspection but I haven't tweaked the snap fit dimensions. That happens next week. The purpose of this first print was to confirm the geometry is workable and identify the obvious problems early. The support bonding, surface finish, and loose snap fit are the three things to fix going into the next iteration.</p>
 
-      <div class="references">
-        <h3>References</h3>
-        <ol>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-        </ol>
-      </div>
-    </article>
 
     <!-- ── WEEK 3 ── -->
     <article class="post" id="week-3">
@@ -390,33 +381,25 @@
         <p class="post-date">17 February 2026</p>
       </header>
 
-      <p>This week was focused on two problems that the first print made visible: support removal damage and snap-fit geometry. The supports used in Week 2 left scarring on the underside of the snap arms that would affect how cleanly the casings click together. I ran two further prints this week, each with a modified support strategy, to find a configuration that balances printability with clean removal.</p>
+     <article class="post" id="week-3">
+<header class="post-header">
+  <p class="post-week">Week 3</p>
+  <h2>Print Iteration — Supports &amp; Snap Fit</h2>
+  <p class="post-date">17 February 2026</p>
+</header>
 
-      <p>[Placeholder: Add your own observations here about which support settings you tried, what the results were, and which configuration you settled on. For example — reducing support density from 15% to 8% improved removal ease with no measurable change in surface quality beneath the overhang. Tree supports with a 3mm tip-to-part distance left the cleanest surface of the three configurations tested.]</p>
+<p>This week was focused on two problems that the first print made visible: support removal damage and snap-fit geometry. I switched from the Prusa MK3S to the Bambu Labs P1S for this round of prints. One of the advantages of the P1S is that its multi-material and automatic support system is significantly better calibrated out of the box, and for this geometry it turned out I didn't need supports or a brim at all. The P1S handled the ledge feature on the underside of the bottom casing without them, which immediately solved the support removal problem from last week.</p>
 
-      <p>The snap-fit geometry required a separate set of iterations. The initial design used a rectangular cantilever arm with a triangular catch profile. Under test, the arm deflected as intended but the catch profile did not engage cleanly, requiring more force than expected to close. I modified the catch angle from 30 to 45 degrees and reduced the arm thickness by 0.3mm. The revised geometry clicked together with noticeably less force and released reliably under finger pressure.</p>
+<p>With supports out of the equation, I turned my attention to surface finish. I enabled ironing this time, running it at 60% speed and 20% flow. Ironing makes a second slow pass over flat top surfaces to press down and smooth out the layer lines. The result was noticeably better than the first print, though not perfectly smooth. There are still some faint lines visible and the finish isn't consistent across the whole surface, so the settings will need further tweaking in the next iteration.</p>
 
-      <p>Process capability in additive manufacturing depends on more than just the design file. The printer's dimensional accuracy, temperature stability, and material batch all introduce variation. This week's work illustrated that even small geometry changes, sub-millimetre in scale, can have a functional impact on the assembled product. Documenting each iteration rigorously is the only way to build confidence that a chosen parameter set will reproduce reliably.</p>
+<figure style="margin-bottom: 2rem;">
+  <img src="images/3bottom-case-ironing.png" alt="Bottom casing surface finish with ironing enabled" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 8 — Bottom casing top surface with ironing enabled at 60% speed and 20% flow. Better than without ironing but not yet consistent enough.</figcaption>
+</figure>
 
-      <div class="placeholder-row">
-        <div class="placeholder">
-          <span class="ph-icon">🔩</span>
-          <strong>[ Photo: Print with supports still attached ]</strong><br>Before support removal — show the support structure.
-        </div>
-        <div class="placeholder">
-          <span class="ph-icon">✅</span>
-          <strong>[ Photo: Snap-fit test — casings clicked together ]</strong><br>Show the two halves assembled.
-        </div>
-      </div>
+<p>The snap-fit geometry required a separate set of iterations. The initial design used a rectangular cantilever arm with a triangular catch profile. Under test, the arm deflected as intended but the catch profile did not engage cleanly, requiring more force than expected to close. I modified the catch angle from 30 to 45 degrees and reduced the arm thickness by 0.3mm. The revised geometry clicked together with noticeably less force and released reliably under finger pressure.</p>
 
-      <div class="inset">
-        <h4>Print Progress This Week</h4>
-        <div class="placeholder">
-          <span class="ph-icon">📸</span>
-          <strong>[ Photo: This week's print ]</strong>
-        </div>
-        <p>[Setting changed this week: e.g. Support density reduced from 15% to 8%.] &nbsp;[Result: e.g. Cleaner removal, no visible surface damage.]</p>
-      </div>
+<p>Process capability in additive manufacturing depends on more than just the design file. The printer's dimensional accuracy, temperature stability, and material batch all introduce variation. This week's work illustrated that even small geometry changes, sub-millimetre in scale, can have a functional impact on the assembled product. Switching printers also made a measurable difference — the P1S produced cleaner results with less setup than the Prusa MK3S required. Documenting each iteration rigorously is the only way to build confidence that a chosen parameter set will reproduce reliably.</p>
 
       <div class="references">
         <h3>References</h3>
