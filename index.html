@@ -292,20 +292,18 @@
   <figcaption>Fig. 2 — GA drawing of the top casing provided by Phones-R-Us</figcaption>
 </figure>
 
-<p>Using the bottom casing drawing, I built the CAD model in SolidWorks this week. The focus was on getting the mating surfaces and critical dimensions right before thinking about print settings or orientation.</p>
+<p>Using the bottom casing drawing, I built the CAD model on Autodesk Fusion this week. The focus was on getting the mating surfaces and critical dimensions right before thinking about print settings or orientation.</p>
   
 <figure style="margin-bottom: 2rem;">
   <img src="images/Bottom-case-cad.png" alt="Bottom casing CAD model" style="width:100%; height:auto;">
   <figcaption>Fig. 3 — CAD model of the bottom casing</figcaption>
 </figure>
-  
 
 <h3>What is Industry 4.0?</h3>
 
-<p>Industry 4.0 refers to the ongoing shift toward digitally connected manufacturing, factories where machines, processes, and people share data in real time rather than operating in isolation. Schwab (2016) describes it as a fusion of physical, digital, and biological systems that is changing not just what we manufacture but how we do it at every level of the supply chain. Lasi et al. (2014) further define Industry 4.0 as a dual development driven by both the market pull of shortening product lifecycles and the technology push of increasingly capable digital systems.</p>
-
+<p>Industry 4.0 refers to the ongoing shift toward digitally connected manufacturing, factories where machines, processes, and people share data in real time rather than operating in isolation. Zhong et al. (2017) describe it as the integration of cyber-physical systems, the Internet of Things, and cloud computing into manufacturing environments, fundamentally changing how factories operate and communicate. Lasi et al. (2014) further define Industry 4.0 as a dual development driven by both the market pull of shortening product lifecycles and the technology push of increasingly capable digital systems.</p>
+  
 <p>Two concepts from this framework sit right at the centre of this project. Vertical integration connects machines and systems within a single factory. Horizontal integration extends that connectivity along the supply chain, upstream to suppliers, downstream to customers. Both matter here because the casing I produce has to slot into a process that already exists, built around parts from a different manufacturer. Getting that coordination right is the whole challenge.</p>
-
   
 <h3>My Plan for the Semester</h3>
 
@@ -327,7 +325,6 @@
 <div class="references">
   <h3>References</h3>
   <ol>
-    <li>Schwab, K. (2016) <em>The Fourth Industrial Revolution</em>. World Economic Forum. Available at: https://www.weforum.org/publications/the-fourth-industrial-revolution-by-klaus-schwab/ (Accessed: 3 February 2026).</li>
     <li>Lasi, H., Fettke, P., Kemper, H., Feld, T. and Hoffmann, M. (2014) 'Industry 4.0', <em>Business and Information Systems Engineering</em>, 6(4), pp. 239–242. Available at: https://doi.org/10.1007/s12599-014-0334-4 (Accessed: 3 February 2026).</li>
     <li>Tofail, S., Koumoulos, E., Bandyopadhyay, A., Bose, S., O'Donoghue, L. and Charitidis, C. (2018) 'Additive manufacturing: scientific and technological challenges, market uptake and opportunities', <em>Materials Today</em>, 21(1), pp. 22–37. Available at: https://doi.org/10.1016/j.mattod.2017.07.001 (Accessed: 3 February 2026).</li>
     <li>Zhong, R., Xu, X., Klotz, E. and Newman, S. (2017) 'Intelligent Manufacturing in the Context of Industry 4.0', <em>Engineering</em>, 3(5), pp. 616–630. Available at: https://doi.org/10.1016/J.ENG.2017.05.015 (Accessed: 3 February 2026).</li>
@@ -342,18 +339,38 @@
         <p class="post-date">10 February 2026</p>
       </header>
 
-      <p>CAD modelling for both casings is complete. The bottom casing was modelled from the engineering drawings, with particular care given to the mating surfaces and the critical dimension on the side wall. The top casing was modelled from measurements taken from the master part, cross-checked with digital callipers. Both models were exported as STL files and loaded into the slicer for the first time this week.</p>
+ <p>The first priority this week was finishing the CAD model for the top casing. Unlike the bottom casing which was modelled directly from engineering drawings, the top casing was reverse engineered from the master part using measurements taken with digital callipers. Getting this done first mattered because without both halves modelled, there was no way to properly evaluate the snap fit geometry between them.</p>
 
-      <p>Slicing decisions at this stage were relatively conservative. I selected a standard 0.2mm layer height, 20% infill with a gyroid pattern for the internal structure, and enabled supports only where the geometry overhangs beyond 45 degrees. Print orientation was chosen to align the snap arms with the XY plane, minimising the effect of layer anisotropy on the features most likely to experience stress during assembly. The first prototype was sent to the printer by the end of the week.</p>
+<figure style="margin-bottom: 2rem;">
+  <img src="images/top-case1-cad.png" alt="Top casing CAD model" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 4 — CAD model of the top casing</figcaption>
+</figure>
 
-      <p>The first print came off the machine with visible layer lines on the top surface and some support scarring on the underside of the snap arms. These are expected at this stage. The purpose of this print is not to achieve a final-quality part, but to confirm that the geometry is broadly correct and that the support strategy is workable. Both casings came off the bed without warping, which was a positive early sign for bed adhesion and temperature calibration on this particular printer.</p>
+<p>With both CAD models complete, I sent them to the Prusa MK3S. I went with 0.2mm layer height, 15% infill, a brim for bed adhesion, and supports enabled for the overhanging geometry on the bottom side of bottom case. The prints ran overnight and both came off the bed with minor warping.</p>
 
-      <p>Documenting this first print carefully matters. Iteration in additive manufacturing is only useful if each run is tied to a specific hypothesis: a changed parameter and an expected outcome. From this point on, I am logging each print with its slicer settings, the change made from the previous run, and the observed result. This mirrors the kind of process control thinking that underpins machine qualification in a production context.</p>
+<p>Removing the supports was more difficult than expected. The supports were generated for a small ledge feature on the underside of the bottom casing. The support material had bonded quite aggressively to this area, and getting it out cleanly without marking the surface took more effort than it should. This is something to address in the next iteration, either by adjusting the support interface settings or increasing the Z distance between the support and the part.</p>
+<figure style="margin-bottom: 2rem;">
+  <img src="images/bottomcasesupport.png" alt="Support removal difficulty on bottom casing" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 5 — Support material on the bottom casing after printing, proving difficult to remove cleanly</figcaption>
+</figure>
 
-      <div class="placeholder tall">
-        <span class="ph-icon">🖨️</span>
-        <strong>[ Photo: First raw print off the machine — Week 2 ]</strong><br>Add your image here. Suggested: photo of both casings fresh off the print bed, before support removal.
-      </div>
+<p>The inside surface of the bottom casing also highlighted another issue. Without ironing enabled, the top surface finish was rough and uneven. Ironing is a slicer setting that makes a second pass over flat top surfaces to smooth them out, and skipping it on this first print left a finish that would not be acceptable in a production context.</p>
+
+<figure style="margin-bottom: 2rem;">
+  <img src="images/1bottomcaseinside.png" alt="Inside of bottom casing without ironing" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 6 — Inside surface of the bottom casing, printed without ironing enabled</figcaption>
+</figure>
+
+<p>The bigger issue was the snap fit. Once assembled, the connection between the two casings was far too loose, there was noticeable play and no satisfying click when the halves came together. This points to a geometry problem in the CAD rather than a print quality issue.</p>
+
+<figure style="margin-bottom: 2rem;">
+  <img src="images/snap-fit.png" alt="Snap fit between top and bottom casing" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 7 — Snap fit between the top and bottom casing after first print</figcaption>
+</figure>
+
+<p>The snap fit deflection and engagement depth need to be revised before the next print. I'll be going back into the model to increase the interference on the locking feature and stiffen the snap geometry slightly.</p>
+
+<p>The overall dimensions on both parts look broadly correct on first inspection but I haven't tweaked the snap fit dimensions. That happens next week. The purpose of this first print was to confirm the geometry is workable and identify the obvious problems early. The support bonding, surface finish, and loose snap fit are the three things to fix going into the next iteration.</p>
 
       <div class="references">
         <h3>References</h3>
