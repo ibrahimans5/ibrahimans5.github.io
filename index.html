@@ -231,37 +231,69 @@
 <main class="posts">
   <div class="container">
 
-    <!-- ── WEEK 1 ── -->
-    <article class="post" id="week-1">
-      <header class="post-header">
-        <p class="post-week">Week 1</p>
-        <h2>Introduction &amp; the Challenge</h2>
-        <p class="post-date">3 February 2026</p>
-      </header>
+    <!-- ════════════════════════════════════ POSTS ════════════════════════════════════ -->
+<main class="posts">
+<div class="container">
 
-      <p>This week marked the beginning of the Phones-R-Us project. The brief is clear: produce top and bottom phone casings using additive manufacturing processes, with samples ready for testing and validation within nine weeks. The casings must fit the master parts produced by a separate supplier and pass through the FESTO CP lab assembly line without fault. The nine-week window is tight, and the dimensional tolerances on the engineering drawings leave little room for error.</p>
+<!-- ── WEEK 1 ── -->
+<article class="post" id="week-1">
+<header class="post-header">
+  <p class="post-week">Week 1</p>
+  <h2>The Brief: Manufacturing Casings for Phones-R-Us</h2>
+  <p class="post-date">3 February 2026</p>
+</header>
 
-      <p>I received the engineering drawings for the bottom casing and began studying the critical dimensions and tolerances. The top casing presents a different challenge: no drawings are supplied, so I will need to reverse-engineer the geometry from the master part using scanning technology. My first task was to identify which dimensions are most likely to cause fit failures on the assembly line, and to plan the print orientation and support strategy around those constraints.</p>
+<p>This semester I'm stepping into the role of a plastic casing manufacturer specialising in additive processes. The client is Phones-R-Us, a fictional company with a real target: 50,000 modular mobile devices a year. My job is to manufacture both the top and bottom casings using 3D printing.</p>
 
-      <p>Early decisions around CAD modelling focused on how the two casings mate. The snapping mechanism is a key concern: it needs enough flex to click together without breaking, but enough rigidity to stay closed. I began sketching several snap-fit geometries to test. Print orientation will affect how the snap arms behave, since layer lines introduce anisotropy, so this is a decision I need to lock in early.</p>
+<p>Printing a casing is the easy part. The harder part is proving it actually works — that it fits the master casing produced by a separate supplier, moves through the FESTO CP assembly line without snagging, and that the process behind it can realistically hit that annual volume. That last point is where plant simulation comes in, but more on that later.</p>
 
-      <p>The broader context for this project sits within Industry 4.0 frameworks. Additive manufacturing allows rapid iteration in a way that traditional injection moulding does not. A design change that would take weeks in a tooling-based process can be tested the next day with a 3D printer. This iterative capacity is one of the core arguments for digital manufacturing in low-to-medium volume production scenarios like this one.</p>
+<div class="placeholder tall">
+  <span class="ph-icon">📐</span>
+  <strong>[ Fig. 1 — GA drawing of the bottom casing provided by Phones-R-Us ]</strong><br>
+  Add your image here.
+</div>
 
-      <div class="placeholder tall">
-        <span class="ph-icon">📐</span>
-        <strong>[ Photo: Engineering drawing or CAD model — Week 1 ]</strong><br>Add your image here. Suggested: screenshot of the bottom casing drawing or early CAD model.
-      </div>
+<div class="placeholder tall">
+  <span class="ph-icon">📐</span>
+  <strong>[ Fig. 2 — GA drawing of the top casing provided by Phones-R-Us ]</strong><br>
+  Add your image here.
+</div>
 
-      <div class="references">
-        <h3>References</h3>
-        <ol>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-        </ol>
-      </div>
-    </article>
+<h3>What is Industry 4.0?</h3>
 
+<p>Industry 4.0 refers to the ongoing shift toward digitally connected manufacturing — factories where machines, processes, and people share data in real time rather than operating in isolation. Schwab (2016) describes it as a fusion of physical, digital, and biological systems that is changing not just what we manufacture but how we do it at every level of the supply chain.</p>
+
+<p>Two concepts from this framework sit right at the centre of this project. Vertical integration connects machines and systems within a single factory. Horizontal integration extends that connectivity along the supply chain — upstream to suppliers, downstream to customers. Both matter here because the casing I produce has to slot into a process that already exists, built around parts from a different manufacturer. Getting that coordination right is the whole challenge.</p>
+
+<h3>My Plan for the Semester</h3>
+
+<p>The nine weeks break down roughly like this. The first two weeks are about getting foundations in place — understanding the drawings, starting CAD for the bottom casing, and scanning the master part to reverse-engineer the top casing geometry. Weeks three and four shift into printing: first attempts, measurement against the drawings, and iterating on whatever doesn't pass. The middle weeks are for refining the process, testing casings on the FESTO line, and documenting what the data shows about printer consistency. The final stretch is plant simulation in Tecnomatix — modelling the six assembly stations, calculating cycle times, and working out how many printers are needed to hit 50,000 units a year.</p>
+
+<div class="stats-grid">
+  <div class="stat"><span class="stat-number">6</span><span class="stat-label">Assembly stations</span></div>
+  <div class="stat"><span class="stat-number">50k</span><span class="stat-label">Phones per year target</span></div>
+  <div class="stat"><span class="stat-number">9</span><span class="stat-label">Weeks to deliver</span></div>
+  <div class="stat"><span class="stat-number">3+</span><span class="stat-label">3D printers available</span></div>
+</div>
+
+<h3>Why This Matters</h3>
+
+<p>The obvious answer is that digital manufacturing is faster and more flexible than traditional tooling-based production. A design change that would take weeks in injection moulding takes hours here. But the more interesting point is what simulation adds on top of that. Building a virtual model of the assembly line before committing to a physical setup means you can test scenarios — what happens if one printer goes down, or cycle time on station three runs long — without it costing anything except compute time. For a target like 50,000 units, that kind of planning isn't optional. The numbers only work if the whole system is thought through, not just the parts.</p>
+
+<p>The challenge I'm most curious about is consistency across prints. Additive manufacturing gives you iteration speed, but it doesn't automatically give you repeatability. Proving that the process is stable enough to supply a production line is a different problem from proving that one casing fits. That tension between flexibility and consistency is what this semester is really about.</p>
+
+<div class="references">
+  <h3>References</h3>
+  <ol>
+    <li>Schwab, K. (2016) <em>The Fourth Industrial Revolution</em>. World Economic Forum. Available at: https://www.weforum.org/publications/the-fourth-industrial-revolution-by-klaus-schwab/ (Accessed: 3 February 2026).</li>
+    <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+    <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+  </ol>
+</div>
+</article>
+
+</div>
+</main>
     <!-- ── WEEK 2 ── -->
     <article class="post" id="week-2">
       <header class="post-header">
