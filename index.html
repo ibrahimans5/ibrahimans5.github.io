@@ -111,6 +111,35 @@
       color: #222;
     }
 
+
+    .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.stat {
+  background: #f5f5f5;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
     /* ── PLACEHOLDER BOXES ── */
     .placeholder {
       border: 2px dashed #bbb;
@@ -262,42 +291,42 @@
 <p>Using the bottom casing drawing, I built the CAD model in SolidWorks this week. The focus was on getting the mating surfaces and critical dimensions right before thinking about print settings or orientation.</p>
   
 <figure style="margin-bottom: 2rem;">
-  <img src="images/Bottom-case-cad.png" alt="Bottom casing CAD model" class="post-img">
+  <img src="images/Bottom-case-cad.png" alt="Bottom casing CAD model" style="width:100%; height:auto;">
   <figcaption>Fig. 3 — CAD model of the bottom casing</figcaption>
 </figure>
   
 
 <h3>What is Industry 4.0?</h3>
 
-<p>Industry 4.0 refers to the ongoing shift toward digitally connected manufacturing, factories where machines, processes, and people share data in real time rather than operating in isolation. Schwab (2016) describes it as a fusion of physical, digital, and biological systems that is changing not just what we manufacture but how we do it at every level of the supply chain.</p>
+<p>Industry 4.0 refers to the ongoing shift toward digitally connected manufacturing, factories where machines, processes, and people share data in real time rather than operating in isolation. Schwab (2016) describes it as a fusion of physical, digital, and biological systems that is changing not just what we manufacture but how we do it at every level of the supply chain. Lasi et al. (2014) further define Industry 4.0 as a dual development driven by both the market pull of shortening product lifecycles and the technology push of increasingly capable digital systems.</p>
 
 <p>Two concepts from this framework sit right at the centre of this project. Vertical integration connects machines and systems within a single factory. Horizontal integration extends that connectivity along the supply chain, upstream to suppliers, downstream to customers. Both matter here because the casing I produce has to slot into a process that already exists, built around parts from a different manufacturer. Getting that coordination right is the whole challenge.</p>
-
 
   
 <h3>My Plan for the Semester</h3>
 
-<p>The nine weeks break down roughly like this. The first two weeks are about getting foundations in place, understanding the drawings, starting CAD for the top and bottom casing. Weeks three and four shift into printing: first attempts, measurement against the drawings, and iterating on whatever doesn't pass. The middle weeks are for refining the process, testing casings on the FESTO line, and documenting what the data shows about printer consistency. The final stretch is plant simulation in Tecnomatix, modelling the six assembly stations, calculating cycle times, and working out how many printers are needed to hit 50,000 units a year.</p>
+<p>The nine weeks break down roughly like this. The first two weeks are about getting foundations in place, understanding the drawings, starting CAD for the top and bottom casing. Weeks three and four shift into printing: first attempts, measurement against the drawings, and iterating on whatever doesn't pass. Tofail et al. (2018) note that dimensional accuracy and repeatability remain among the core challenges in additive manufacturing, which is exactly what these early print runs are designed to test. The middle weeks are for refining the process, testing casings on the FESTO line, and documenting what the data shows about printer consistency. The final stretch is plant simulation in Tecnomatix, modelling the six assembly stations, calculating cycle times, and working out how many printers are needed to hit 50,000 units a year.</p>
 
 <div class="stats-grid">
   <div class="stat"><span class="stat-number">6</span><span class="stat-label">Assembly stations</span></div>
   <div class="stat"><span class="stat-number">50k</span><span class="stat-label">Phones per year target</span></div>
-  <div class="stat"><span class="stat-number">9</span><span class="stat-label">Weeks to deliver</span></div>
-  <div class="stat"><span class="stat-number"></span><span class="stat-label">3D printers available</span></div>
+  <div class="stat"><span class="stat-number">52</span><span class="stat-label">Weeks to deliver</span></div>
+  <div class="stat"><span class="stat-number">80</span><span class="stat-label">3D printers available</span></div>
 </div>
 
 <h3>Why This Matters</h3>
 
 <p>The obvious answer is that digital manufacturing is faster and more flexible than traditional tooling-based production. A design change that would take weeks in injection moulding takes hours here. But the more interesting point is what simulation adds on top of that. Building a virtual model of the assembly line before committing to a physical setup means you can test scenarios, what happens if one printer goes down, or cycle time on station three runs long, without it costing anything except compute time. For a target like 50,000 units, that kind of planning is required. The numbers only work if the whole system is thought through, not just the parts.</p>
 
-<p>The challenge I'm most interested about is consistency across prints. Additive manufacturing gives you iteration speed, but it doesn't automatically give you repeatability. Proving that the process is stable enough to supply a production line is a different problem from proving that one casing fits. That tension between flexibility and consistency is what this unit is really about.</p>
+<p>The challenge I'm most interested in is consistency across prints. Additive manufacturing gives you iteration speed, but it doesn't automatically give you repeatability. Proving that the process is stable enough to supply a production line is a different problem from proving that one casing fits. Zhong et al. (2017) argue that intelligent manufacturing systems built on Industry 4.0 principles are precisely what close that gap, using real-time data to maintain process stability at scale. That tension between flexibility and consistency is what this unit is really about.</p>
 
 <div class="references">
   <h3>References</h3>
   <ol>
     <li>Schwab, K. (2016) <em>The Fourth Industrial Revolution</em>. World Economic Forum. Available at: https://www.weforum.org/publications/the-fourth-industrial-revolution-by-klaus-schwab/ (Accessed: 3 February 2026).</li>
-    <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-    <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+    <li>Lasi, H., Fettke, P., Kemper, H., Feld, T. and Hoffmann, M. (2014) 'Industry 4.0', <em>Business and Information Systems Engineering</em>, 6(4), pp. 239–242. Available at: https://doi.org/10.1007/s12599-014-0334-4 (Accessed: 3 February 2026).</li>
+    <li>Tofail, S., Koumoulos, E., Bandyopadhyay, A., Bose, S., O'Donoghue, L. and Charitidis, C. (2018) 'Additive manufacturing: scientific and technological challenges, market uptake and opportunities', <em>Materials Today</em>, 21(1), pp. 22–37. Available at: https://doi.org/10.1016/j.mattod.2017.07.001 (Accessed: 3 February 2026).</li>
+    <li>Zhong, R., Xu, X., Klotz, E. and Newman, S. (2017) 'Intelligent Manufacturing in the Context of Industry 4.0', <em>Engineering</em>, 3(5), pp. 616–630. Available at: https://doi.org/10.1016/J.ENG.2017.05.015 (Accessed: 3 February 2026).</li>
   </ol>
 </div>
 </article>
