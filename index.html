@@ -243,10 +243,12 @@
   <p class="post-date">3 February 2026</p>
 </header>
 
-<p>This semester I'm stepping into the role of a plastic casing manufacturer specialising in additive processes. The client is Phones-R-Us, a fictional company with a real target: 50,000 modular mobile devices a year. My job is to manufacture both the top and bottom casings using 3D printing.</p>
+<p>This semester I'm stepping into the role of a plastic casing manufacturer specialising in additive processes. The client is Phones-R-Us, a fictional company with a target of 50,000 modular mobile devices a year. My job is to manufacture both the top and bottom casings using FDM printing.</p>
 
-<p>Printing a casing is the easy part. The harder part is proving it actually works — that it fits the master casing produced by a separate supplier, moves through the FESTO CP assembly line without snagging, and that the process behind it can realistically hit that annual volume. That last point is where plant simulation comes in, but more on that later.</p>
+<p>Printing a casing is the easy part. The harder part is proving it actually works, fits the master casing produced by a separate supplier, moves through the FESTO CP assembly line without snagging, and that the process behind it can realistically hit that annual volume. That last point is where plant simulation comes in, but I'll work on that later.</p>
 
+<p>Below are the engineering drawings for both the top and bottom casings provided by Phones-R-Us. The bottom casing came with full dimensions and tolerances, which formed the basis for the CAD model. The top casing drawing gave me an early look at the geometry I'll need to work with when I start modelling that half next week.</p>
+  
 <figure>
   <img src="images/bottom-case-GA.png" alt="Fig. 1 — GA drawing of the bottom casing" style="width:100%; height:auto;">
   <figcaption>Fig. 1 — GA drawing of the bottom casing provided by Phones-R-Us</figcaption>
@@ -257,28 +259,38 @@
   <figcaption>Fig. 2 — GA drawing of the top casing provided by Phones-R-Us</figcaption>
 </figure>
 
+<p>Using the bottom casing drawing, I built the CAD model in SolidWorks this week. The focus was on getting the mating surfaces and critical dimensions right before thinking about print settings or orientation.</p>
+  
+<figure>
+  <img src="images/Bottom-case-cad.png" alt="Bottom casing CAD model" class="post-img">
+  <figcaption>Fig. 3 — CAD model of the bottom casing</figcaption>
+</figure>
+  
+
 <h3>What is Industry 4.0?</h3>
 
-<p>Industry 4.0 refers to the ongoing shift toward digitally connected manufacturing — factories where machines, processes, and people share data in real time rather than operating in isolation. Schwab (2016) describes it as a fusion of physical, digital, and biological systems that is changing not just what we manufacture but how we do it at every level of the supply chain.</p>
+<p>Industry 4.0 refers to the ongoing shift toward digitally connected manufacturing, factories where machines, processes, and people share data in real time rather than operating in isolation. Schwab (2016) describes it as a fusion of physical, digital, and biological systems that is changing not just what we manufacture but how we do it at every level of the supply chain.</p>
 
-<p>Two concepts from this framework sit right at the centre of this project. Vertical integration connects machines and systems within a single factory. Horizontal integration extends that connectivity along the supply chain — upstream to suppliers, downstream to customers. Both matter here because the casing I produce has to slot into a process that already exists, built around parts from a different manufacturer. Getting that coordination right is the whole challenge.</p>
+<p>Two concepts from this framework sit right at the centre of this project. Vertical integration connects machines and systems within a single factory. Horizontal integration extends that connectivity along the supply chain, upstream to suppliers, downstream to customers. Both matter here because the casing I produce has to slot into a process that already exists, built around parts from a different manufacturer. Getting that coordination right is the whole challenge.</p>
 
+
+  
 <h3>My Plan for the Semester</h3>
 
-<p>The nine weeks break down roughly like this. The first two weeks are about getting foundations in place — understanding the drawings, starting CAD for the bottom casing, and scanning the master part to reverse-engineer the top casing geometry. Weeks three and four shift into printing: first attempts, measurement against the drawings, and iterating on whatever doesn't pass. The middle weeks are for refining the process, testing casings on the FESTO line, and documenting what the data shows about printer consistency. The final stretch is plant simulation in Tecnomatix — modelling the six assembly stations, calculating cycle times, and working out how many printers are needed to hit 50,000 units a year.</p>
+<p>The nine weeks break down roughly like this. The first two weeks are about getting foundations in place, understanding the drawings, starting CAD for the top and bottom casing. Weeks three and four shift into printing: first attempts, measurement against the drawings, and iterating on whatever doesn't pass. The middle weeks are for refining the process, testing casings on the FESTO line, and documenting what the data shows about printer consistency. The final stretch is plant simulation in Tecnomatix, modelling the six assembly stations, calculating cycle times, and working out how many printers are needed to hit 50,000 units a year.</p>
 
 <div class="stats-grid">
   <div class="stat"><span class="stat-number">6</span><span class="stat-label">Assembly stations</span></div>
   <div class="stat"><span class="stat-number">50k</span><span class="stat-label">Phones per year target</span></div>
   <div class="stat"><span class="stat-number">9</span><span class="stat-label">Weeks to deliver</span></div>
-  <div class="stat"><span class="stat-number">3+</span><span class="stat-label">3D printers available</span></div>
+  <div class="stat"><span class="stat-number"></span><span class="stat-label">3D printers available</span></div>
 </div>
 
 <h3>Why This Matters</h3>
 
-<p>The obvious answer is that digital manufacturing is faster and more flexible than traditional tooling-based production. A design change that would take weeks in injection moulding takes hours here. But the more interesting point is what simulation adds on top of that. Building a virtual model of the assembly line before committing to a physical setup means you can test scenarios — what happens if one printer goes down, or cycle time on station three runs long — without it costing anything except compute time. For a target like 50,000 units, that kind of planning isn't optional. The numbers only work if the whole system is thought through, not just the parts.</p>
+<p>The obvious answer is that digital manufacturing is faster and more flexible than traditional tooling-based production. A design change that would take weeks in injection moulding takes hours here. But the more interesting point is what simulation adds on top of that. Building a virtual model of the assembly line before committing to a physical setup means you can test scenarios, what happens if one printer goes down, or cycle time on station three runs long, without it costing anything except compute time. For a target like 50,000 units, that kind of planning is required. The numbers only work if the whole system is thought through, not just the parts.</p>
 
-<p>The challenge I'm most curious about is consistency across prints. Additive manufacturing gives you iteration speed, but it doesn't automatically give you repeatability. Proving that the process is stable enough to supply a production line is a different problem from proving that one casing fits. That tension between flexibility and consistency is what this semester is really about.</p>
+<p>The challenge I'm most interested about is consistency across prints. Additive manufacturing gives you iteration speed, but it doesn't automatically give you repeatability. Proving that the process is stable enough to supply a production line is a different problem from proving that one casing fits. That tension between flexibility and consistency is what this unit is really about.</p>
 
 <div class="references">
   <h3>References</h3>
