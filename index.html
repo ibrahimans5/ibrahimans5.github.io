@@ -647,14 +647,11 @@
 </figure>
 
 <p>In this iteration, I perfected the snap fit and came close with the ironing finish. This is where process capability becomes relevant. Passing one print is not the same as proving the process is capable. Montgomery (2019) defines process capability as the ability of a process to produce output within specification limits consistently, which requires data from multiple runs rather than a single measurement. To have confidence in the 1.69mm result, I would need to print multiple parts under the same conditions and measure the variation across them. If the spread of results sits comfortably within the 1.6–2.2mm window, the process is capable. If results cluster near 1.69mm with any meaningful variance, the lower limit becomes a real risk. The next step is running repeated prints with locked ironing settings and measuring the consistency.</p>
-
-<video controls style="width:100%; height:auto; border-radius:8px;">
-  <source src="images/FESTOLabIbrahim.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<figure style="margin-bottom: 2rem;">
+  <iframe width="100%" height="400" src="https://drive.google.com/file/d/1v2-x7coXZZpwzXCc0QkLEM6GTcSddWUI/view?usp=sharing"
+  frameborder="0" allowfullscreen style="border-radius:8px;"></iframe>
   <figcaption>Vid. 1 — FESTO CP lab assembly line testing — phone casing moving through all 6 stations</figcaption>
 </figure>
-
     
 <div class="references">
   <h3>References</h3>
@@ -775,130 +772,130 @@
 
 <p>The PFMEA identifies potential failure modes at each step of the final process, their effects, causes, and the controls in place to detect or prevent them. Each failure mode is scored on Severity (S), Occurrence (O), and Detection (D), each out of 10, with the Risk Priority Number (RPN) calculated as S x O x D. High RPN values indicate the steps requiring the most attention.</p>
 
-<div style="overflow-x:auto; margin: 2rem 0;" class="pfmea-table">
-  <table style="width:100%; border-collapse:collapse; font-size:0.85rem;">
+<div class="pfmea-table">
+  <table>
     <thead>
-      <tr style="background:var(--color-background-secondary);">
-        <th style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:left;">Op-Seq</th>
-        <th style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:left;">Process step</th>
-        <th style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:left;">Potential failure mode</th>
-        <th style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:left;">Potential effect</th>
-        <th style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">S</th>
-        <th style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:left;">Potential cause</th>
-        <th style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">O</th>
-        <th style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:left;">Current controls</th>
-        <th style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">D</th>
-        <th style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">RPN</th>
+      <tr>
+        <th>Op-Seq</th>
+        <th>Process step</th>
+        <th>Potential failure mode</th>
+        <th>Potential effect</th>
+        <th>S</th>
+        <th>Potential cause</th>
+        <th>O</th>
+        <th>Current controls</th>
+        <th>D</th>
+        <th>RPN</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">10-01</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Receive engineering drawings</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Incorrect drawing revision used</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">CAD modelled to wrong dimensions</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">8</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Multiple drawing versions in circulation</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">2</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Check rev date on drawing before use</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">3</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center; font-weight:500;">48</td>
-      </tr>
-      <tr style="background:var(--color-background-secondary);">
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">10-02/03</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">CAD modelling</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Critical dimension entered incorrectly</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Part fails FESTO dimensional check</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">8</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Manual data entry error in Fusion 360</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">3</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Cross-check CAD dimensions against drawing before export</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">4</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center; font-weight:500;">96</td>
+        <td>10-01</td>
+        <td>Receive engineering drawings</td>
+        <td>Incorrect drawing revision used</td>
+        <td>CAD modelled to wrong dimensions</td>
+        <td>8</td>
+        <td>Multiple drawing versions in circulation</td>
+        <td>2</td>
+        <td>Check rev date on drawing before use</td>
+        <td>3</td>
+        <td class="rpn-mid">48</td>
       </tr>
       <tr>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">20-01</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Export 3mf files</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Wrong file version exported</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Outdated geometry sent to printer</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">7</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Multiple saved versions of CAD file</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">2</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Use single named file with version control</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">3</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center; font-weight:500;">42</td>
-      </tr>
-      <tr style="background:var(--color-background-secondary);">
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">20-02</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Slicing — Bambu Studio</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Incorrect ironing settings applied</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Middle extrude feature outside 1.6-2.2mm tolerance</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">8</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Settings not locked between sessions</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">4</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Save and reuse validated slicer profile</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">3</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center; font-weight:500;">96</td>
+        <td>10-02/03</td>
+        <td>CAD modelling</td>
+        <td>Critical dimension entered incorrectly</td>
+        <td>Part fails FESTO dimensional check</td>
+        <td>8</td>
+        <td>Manual data entry error in Fusion 360</td>
+        <td>3</td>
+        <td>Cross-check CAD dimensions against drawing before export</td>
+        <td>4</td>
+        <td class="rpn-high">96</td>
       </tr>
       <tr>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">30-01</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">3D printing — Bambu P1S</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Print failure — layer delamination</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Part scrapped, production delayed</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">6</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Filament moisture, temperature variation</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">3</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Monitor print via camera, dry filament before use</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">4</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center; font-weight:500;">72</td>
-      </tr>
-      <tr style="background:var(--color-background-secondary);">
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">30-01</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">3D printing — Bambu P1S</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Dimensional variation between prints</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Middle extrude feature drifts outside tolerance</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">8</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Filament batch variation, temperature drift</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">4</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">FESTO measuring station catches out-of-tolerance parts</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">2</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center; font-weight:500;">64</td>
+        <td>20-01</td>
+        <td>Export 3mf files</td>
+        <td>Wrong file version exported</td>
+        <td>Outdated geometry sent to printer</td>
+        <td>7</td>
+        <td>Multiple saved versions of CAD file</td>
+        <td>2</td>
+        <td>Use single named file with version control</td>
+        <td>3</td>
+        <td>42</td>
       </tr>
       <tr>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">40-01</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Visual inspection</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Surface defect missed</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Defective part reaches FESTO line</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">5</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Operator fatigue, poor lighting</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">3</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Structured inspection checklist, consistent lighting</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">4</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center; font-weight:500;">60</td>
-      </tr>
-      <tr style="background:var(--color-background-secondary);">
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">50-01</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">FESTO measuring station</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Middle extrude outside 1.6-2.2mm limit</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Part rejected, process halted for investigation</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">8</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">CAD geometry or ironing settings out of spec</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">3</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Automatic measurement — part flagged immediately</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">1</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center; font-weight:500;">24</td>
+        <td>20-02</td>
+        <td>Slicing — Bambu Studio</td>
+        <td>Incorrect ironing settings applied</td>
+        <td>Middle extrude feature outside 1.6-2.2mm tolerance</td>
+        <td>8</td>
+        <td>Settings not locked between sessions</td>
+        <td>4</td>
+        <td>Save and reuse validated slicer profile</td>
+        <td>3</td>
+        <td class="rpn-high">96</td>
       </tr>
       <tr>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">50-02</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">FESTO snap fit assembly</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Snap fit fails to engage</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Phone casing rejected at assembly</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">7</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Snap feature geometry undersized or oversized</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">2</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary);">Visual inspection before FESTO test, FESTO catches failure</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center;">2</td>
-        <td style="padding:0.75rem; border:1px solid var(--color-border-secondary); text-align:center; font-weight:500;">28</td>
+        <td>30-01</td>
+        <td>3D printing — Bambu P1S</td>
+        <td>Print failure — layer delamination</td>
+        <td>Part scrapped, production delayed</td>
+        <td>6</td>
+        <td>Filament moisture, temperature variation</td>
+        <td>3</td>
+        <td>Monitor print via camera, dry filament before use</td>
+        <td>4</td>
+        <td class="rpn-mid">72</td>
+      </tr>
+      <tr>
+        <td>30-01</td>
+        <td>3D printing — Bambu P1S</td>
+        <td>Dimensional variation between prints</td>
+        <td>Middle extrude feature drifts outside tolerance</td>
+        <td>8</td>
+        <td>Filament batch variation, temperature drift</td>
+        <td>4</td>
+        <td>FESTO measuring station catches out-of-tolerance parts</td>
+        <td>2</td>
+        <td class="rpn-mid">64</td>
+      </tr>
+      <tr>
+        <td>40-01</td>
+        <td>Visual inspection</td>
+        <td>Surface defect missed</td>
+        <td>Defective part reaches FESTO line</td>
+        <td>5</td>
+        <td>Operator fatigue, poor lighting</td>
+        <td>3</td>
+        <td>Structured inspection checklist, consistent lighting</td>
+        <td>4</td>
+        <td class="rpn-mid">60</td>
+      </tr>
+      <tr>
+        <td>50-01</td>
+        <td>FESTO measuring station</td>
+        <td>Middle extrude outside 1.6-2.2mm limit</td>
+        <td>Part rejected, process halted for investigation</td>
+        <td>8</td>
+        <td>CAD geometry or ironing settings out of spec</td>
+        <td>3</td>
+        <td>Automatic measurement — part flagged immediately</td>
+        <td>1</td>
+        <td>24</td>
+      </tr>
+      <tr>
+        <td>50-02</td>
+        <td>FESTO snap fit assembly</td>
+        <td>Snap fit fails to engage</td>
+        <td>Phone casing rejected at assembly</td>
+        <td>7</td>
+        <td>Snap feature geometry undersized or oversized</td>
+        <td>2</td>
+        <td>Visual inspection before FESTO test, FESTO catches failure</td>
+        <td>2</td>
+        <td>28</td>
       </tr>
     </tbody>
   </table>
