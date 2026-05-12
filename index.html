@@ -54,6 +54,48 @@
       padding: 0 24px;
     }
 
+    /* ── Table ── */
+    
+.pfmea-table {
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.pfmea-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  border: 2px solid var(--color-border-primary);
+}
+
+.pfmea-table th {
+  padding: 0.75rem;
+  border: 1px solid var(--color-border-primary);
+  text-align: left;
+  background: var(--color-background-secondary);
+  font-weight: 500;
+}
+
+.pfmea-table td {
+  padding: 0.75rem;
+  border: 1px solid var(--color-border-primary);
+}
+
+.pfmea-table tr:nth-child(even) td {
+  background: var(--color-background-secondary);
+}
+
+.pfmea-table .rpn-high {
+  color: var(--color-text-danger);
+  font-weight: 500;
+}
+
+.pfmea-table .rpn-mid {
+  color: var(--color-text-warning);
+  font-weight: 500;
+}
+
+    
     /* ── ABOUT ── */
     .about {
       border-bottom: 1px solid #e0e0e0;
@@ -734,7 +776,7 @@
 
 <p>The PFMEA identifies potential failure modes at each step of the final process, their effects, causes, and the controls in place to detect or prevent them. Each failure mode is scored on Severity (S), Occurrence (O), and Detection (D), each out of 10, with the Risk Priority Number (RPN) calculated as S x O x D. High RPN values indicate the steps requiring the most attention.</p>
 
-<div style="overflow-x:auto; margin: 2rem 0;">
+<div style="overflow-x:auto; margin: 2rem 0;" class="pfmea-table">
   <table style="width:100%; border-collapse:collapse; font-size:0.85rem;">
     <thead>
       <tr style="background:var(--color-background-secondary);">
