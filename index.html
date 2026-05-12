@@ -656,38 +656,81 @@
 </div>
 </article>
 
-    <!-- ── WEEK 6 ── -->
-    <article class="post" id="week-6">
-      <header class="post-header">
-        <p class="post-week">Week 6</p>
-        <h2>Multi-Supplier Variability &amp; Quality</h2>
-        <p class="post-date">10 March 2026</p>
-      </header>
+   <!-- ── WEEK 6 ── -->
+<article class="post" id="week-6">
+<header class="post-header">
+  <p class="post-week">Week 6</p>
+  <h2>Final Print, Process Documentation &amp; Takt Time</h2>
+  <p class="post-date">10 March 2026</p>
+</header>
 
-     
-      <div class="placeholder">
-        <span class="ph-icon">📊</span>
-        <strong>[ Placeholder: PFMEA table or process capability chart ]</strong><br>Add your PFMEA table, Cpk data, or a measurement distribution chart here.
-      </div>
+<p>This week brought everything together. The final print came off the Bambu Labs P1S and passed the FESTO CP lab test with the middle extrude feature reading 1.89mm — right in the centre of the 1.6–2.2mm tolerance window. After several iterations adjusting geometry and ironing settings, the process is now stable and repeatable.</p>
 
-      <div class="inset">
-        <h4>FESTO Test This Week</h4>
-        <div class="placeholder">
-          <span class="ph-icon">🏭</span>
-          <strong>[ Photo: FESTO test this week ]</strong>
-        </div>
-        <p>[Note: e.g. Tested a batch of three casings from different print runs. All three passed Station 5, but measurement values ranged from 1.7mm to 2.0mm, illustrating within-batch variation.]</p>
-      </div>
+<h3>Final Print Settings</h3>
 
-      <div class="references">
-        <h3>References</h3>
-        <ol>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-        </ol>
-      </div>
-    </article>
+<p>The ironing was set to 50% speed and 23% flow for this print. The result was the smoothest surface finish of any iteration so far — the layer lines are almost invisible on the top face. Getting to this point took several rounds of tweaking, but locking in these settings gives confidence that reprinting under the same conditions would produce the same result.</p>
+
+<figure style="margin-bottom: 2rem;">
+  <img src="images/6phonecaseironing.jpeg" alt="Final phone case top surface with ironing at 50% speed 23% flow" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 17 — Final top surface finish with ironing at 50% speed and 23% flow</figcaption>
+</figure>
+
+<p>One significant change this week was using a PETG support interface via the Bambu Labs P1S filament changer. Instead of printing supports entirely in PLA, the interface layer — the part of the support directly touching the part — was printed in PETG. Because PLA and PETG don't bond well to each other, the supports released cleanly without any surface marking. This solved the support removal problem that had been present since week 2. Dizon et al. (2018) note that material selection in FDM significantly affects post-processing outcomes, and this is a direct example of that — switching the interface material made a visible difference without changing the geometry or print orientation.</p>
+
+<figure style="margin-bottom: 2rem;">
+  <img src="images/6phonecaseback.jpeg" alt="Back of final phone casing showing clean support removal" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 18 — Back of the final bottom casing after support removal using PETG interface — noticeably cleaner than previous iterations</figcaption>
+</figure>
+
+<h3>FESTO CP Lab — Final Result</h3>
+
+<p>The casing was tested on the FESTO CP assembly line and the middle extrude feature measured 1.89mm. The tolerance window is 1.6–2.2mm and the nominal target is 2.0mm, making 1.89mm a strong result — 0.11mm from nominal and well clear of both limits. After bouncing between the lower boundary in week 4 (1.69mm) and the upper boundary in week 5 (2.19mm), the geometry and ironing combination used this week landed the part where it needed to be. Camposeco-Negrete (2020) confirms that iterative parameter optimisation is the standard approach to achieving dimensional accuracy in FDM, and this process has been a practical demonstration of exactly that.</p>
+
+<figure style="margin-bottom: 2rem;">
+  <img src="images/6festo.jpeg" alt="FESTO CP lab measurement showing 1.89mm reading" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 19 — FESTO CP lab measurement — middle extrude feature at 1.89mm, within the 1.6–2.2mm tolerance window</figcaption>
+</figure>
+
+<h3>Process Flow Diagram</h3>
+
+<p>With the final process confirmed, this week I completed the Process Flow Diagram documenting every step from receiving the engineering drawings through to the final approved casing. The PFD follows the standard format used in automotive manufacturing, with operation sequence numbers, process symbols, and descriptions for each step. Significantly, it only captures the final optimised process — the failed Prusa prints from the early weeks are not included, since the PFD represents what someone would follow to reproduce the result, not the full experimental history. Lasi et al. (2014) describe process documentation as a core component of Industry 4.0 integration, enabling traceability and consistency across production runs.</p>
+
+<figure style="margin-bottom: 2rem;">
+  <img src="images/6PFD.png" alt="Process Flow Diagram for Phones-R-Us phone casing manufacture" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 20 — Process Flow Diagram for the Phones-R-Us phone casing manufacturing process</figcaption>
+</figure>
+
+<h3>Manufacturing Sequence Chart</h3>
+
+<p>The Manufacturing Sequence Chart shows how the top and bottom casing are manufactured in parallel before merging at the assembly and inspection stage. Both streams follow the same operations — receiving drawings, CAD modelling, slicing, and printing — before the two parts come together for visual inspection and FESTO testing. This parallel structure reflects how a real production line would handle the two components simultaneously to minimise lead time. Zhong et al. (2017) highlight parallel processing as one of the key efficiency gains enabled by digitally connected manufacturing systems.</p>
+
+<figure style="margin-bottom: 2rem;">
+  <img src="images/6ManufacturingSeq.png" alt="Manufacturing Sequence Chart showing parallel top and bottom case production streams" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 21 — Manufacturing Sequence Chart — parallel production streams for top and bottom casing merging at visual inspection</figcaption>
+</figure>
+
+<h3>Takt Time Analysis</h3>
+
+<p>The Takt Time Analysis calculates how fast the process needs to run to meet the 50,000 units per year target. With a single 8-hour shift, 5 days a week, 48 weeks a year, the scheduled run time is 480 minutes per day. Divided across 208 units of daily demand, the takt time works out to 138 seconds per phone casing. This is the heartbeat of the production system — every casing needs to be completed within 138 seconds to keep pace with demand. Slack et al. (2016) describe takt time as the fundamental link between customer demand and production rate, and it is this figure that determines how many printers are needed in the Tecnomatix simulation.</p>
+
+<p>The table also shows how takt time would change if demand grew — at 60,000 units per year the takt time drops to 115 seconds, at 70,000 it drops to 98 seconds. Each reduction puts more pressure on the process and would eventually require either additional printers or a second shift. That analysis feeds directly into the plant simulation work coming in the next few weeks.</p>
+
+<figure style="margin-bottom: 2rem;">
+  <img src="images/6TAKTtimeanalysis.png" alt="Takt Time Analysis showing 138 seconds per unit at 50,000 annual volume" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 22 — Takt Time Analysis — 138 seconds per phone casing at 50,000 units per year on a single shift</figcaption>
+</figure>
+
+<div class="references">
+  <h3>References</h3>
+  <ol>
+    <li>Camposeco-Negrete, C. (2020) 'Optimization of FDM parameters for improving part quality, productivity and sustainability of the process using Taguchi methodology', <em>Progress in Additive Manufacturing</em>, 5, pp. 347–360. Available at: https://doi.org/10.1007/s40964-020-00135-9 (Accessed: 10 March 2026).</li>
+    <li>Dizon, J., Espera, A., Chen, Q. and Advincula, R. (2018) 'Mechanical characterization of 3D-printed polymers', <em>Additive Manufacturing</em>, 20, pp. 44–67. Available at: https://doi.org/10.1016/j.addma.2017.12.002 (Accessed: 10 March 2026).</li>
+    <li>Lasi, H., Fettke, P., Kemper, H., Feld, T. and Hoffmann, M. (2014) 'Industry 4.0', <em>Business and Information Systems Engineering</em>, 6(4), pp. 239–242. Available at: https://doi.org/10.1007/s12599-014-0334-4 (Accessed: 10 March 2026).</li>
+    <li>Slack, N., Brandon-Jones, A. and Johnston, R. (2016) <em>Operations Management</em>. 8th edn. Pearson. Available at: https://www.pearson.com/en-gb/subject-catalog/p/operations-management/P200000004939 (Accessed: 10 March 2026).</li>
+    <li>Zhong, R., Xu, X., Klotz, E. and Newman, S. (2017) 'Intelligent Manufacturing in the Context of Industry 4.0', <em>Engineering</em>, 3(5), pp. 616–630. Available at: https://doi.org/10.1016/J.ENG.2017.05.015 (Accessed: 10 March 2026).</li>
+  </ol>
+</div>
+</article>
 
     <!-- ── WEEK 7 ── -->
     <article class="post" id="week-7">
