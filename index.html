@@ -378,7 +378,7 @@
         <p class="post-date">10 February 2026</p>
       </header>
 
- <p>The first priority this week was finishing the CAD model for the top casing. Unlike the bottom casing which was modelled directly from engineering drawings, the top casing was reverse engineered from the master part using measurements taken with digital callipers. Getting this done first mattered because without both halves modelled, there was no way to properly evaluate the snap fit geometry between them.</p>
+ <p>The first priority this week was finishing the CAD model for the top casing. I finished the CAD for the top case by following the GA drawings. Getting this done first mattered because without both halves modelled, there was no way to properly evaluate the snap fit geometry between them.</p>
 
 <figure style="margin-bottom: 2rem;">
   <img src="images/top-case1-cad.png" alt="Top casing CAD model" class="post-img" style="width:100%; height:auto;">
@@ -449,7 +449,7 @@
 </div>
       
 
-<p>With both CAD models complete, I sent them to the Prusa MK3S. I went with 0.2mm layer height, 15% infill, a brim for bed adhesion, and supports enabled for the overhanging geometry on the bottom side of bottom case. The prints ran overnight and both came off the bed with minor warping.</p>
+<p>With both CAD models complete, I sent them to the Prusa MK3S. I went with 0.15mm layer height, 15% infill, a brim for bed adhesion, and supports enabled for the overhanging geometry on the bottom side of bottom case. The prints ran overnight and both came off the bed with minor warping.</p>
 
 <p>Removing the supports was more difficult than expected. The supports were generated for a small ledge feature on the underside of the bottom casing. The support material had bonded quite aggressively to this area, and getting it out cleanly without marking the surface took more effort than it should. This is something to address in the next iteration, either by adjusting the support interface settings or increasing the Z distance between the support and the part.</p>
 <figure style="margin-bottom: 2rem;">
@@ -585,15 +585,13 @@
   <p class="post-date">24 February 2026</p>
 </header>
 
-<p>This week moved away from printing and into measurement. The casings were tested on the FESTO CP lab assembly line to check how they perform in a real production context. The machine gives you an immediate reading of whether your part is within tolerance. It also tests the snapfit of the bottom case with a master part which is made with injection moulding. My part snapped perfectly onto the master part with no room for wiggle. For this iteration I ran ironing at 50% speed and 20% flow, a slight adjustment from last week's 60% speed setting. The inner surface looks much better than last week. I also ran my previous week's parts on the festo machine to see the tolerence on those as well.</p>
-
+<p>This week moved away from printing and into measurement. The casings were tested on the FESTO CP lab assembly line to check how they perform in a real production context. The machine gives you an immediate reading of whether your part is within tolerance. It also tests the snap fit of the bottom case with a master part which is made with injection moulding. My part snapped perfectly onto the master part with no room for wiggle. For this iteration I ran ironing at 50% speed and 20% flow, a slight adjustment from last week's 60% speed setting. The inner surface looks much better than last week. I also ran my previous week's parts on the FESTO machine to see the tolerance on those as well.</p>
 <figure style="margin-bottom: 2rem;">
   <img src="images/4festo.png" alt="FESTO machine with measurement readings" class="post-img" style="width:100%; height:auto;">
   <figcaption>Fig. 11 — FESTO CP lab measurement readings for the phone casing</figcaption>
 </figure>
 
-<p>The middle extrude feature came in at 1.69mm. The tolerence specifies a limit of 1.6–2.2mm, so it passes, but it is sitting close to the lower boundary for comfort. In a production context that margin is uncomfortable. A small shift in ironing settings, flow rate, speed, or even filament batch variation, could push that dimension below 1.6mm and cause a failure on the line. The fact that ironing directly affects this surface means the print parameters have a direct impact on whether the part is within tolerance.</p>
-
+<p>The middle extrude feature came in at 1.69mm. The tolerance specifies a limit of 1.6–2.2mm, so it passes, but it is sitting close to the lower boundary. In a production context that margin is uncomfortable. A small shift in ironing settings, flow rate, speed, or even filament batch variation, could push that dimension below 1.6mm and cause a failure on the line. Tofail et al. (2018) highlight that dimensional variability in additive manufacturing is an ongoing challenge even in well-controlled environments, and this result is a direct example of that risk.</p>
 <figure style="margin-bottom: 2rem;">
   <img src="images/4phonecaseironing.png" alt="Phone case top surface with ironing at 50% speed 20% flow" class="post-img" style="width:100%; height:auto;">
   <figcaption>Fig. 12 — Top surface finish with ironing at 50% speed and 20% flow</figcaption>
@@ -606,17 +604,20 @@
   <figcaption>Fig. 13 — Back of the bottom casing after support removal</figcaption>
 </figure>
 
-<p>In this iteration, I perfected the snapfit and came close with the ironing finish. This is where process capability becomes relevant. Passing one print is not the same as proving the process is capable. To have confidence in the 1.69mm result, I would need to print multiple parts under the same conditions and measure the variation across them. If the spread of results sits comfortably within the 1.6–2.2mm window, the process is capable. If results cluster near 1.69mm with any meaningful variance, the lower limit becomes a real risk. The next step is running repeated prints with locked ironing settings and measuring the consistency.</p>
+<p>In this iteration, I perfected the snap fit and came close with the ironing finish. This is where process capability becomes relevant. Passing one print is not the same as proving the process is capable. Montgomery (2019) defines process capability as the ability of a process to produce output within specification limits consistently, which requires data from multiple runs rather than a single measurement. To have confidence in the 1.69mm result, I would need to print multiple parts under the same conditions and measure the variation across them. If the spread of results sits comfortably within the 1.6–2.2mm window, the process is capable. If results cluster near 1.69mm with any meaningful variance, the lower limit becomes a real risk. The next step is running repeated prints with locked ironing settings and measuring the consistency.</p>
 
 <div class="references">
   <h3>References</h3>
   <ol>
-    <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-  </ol>
+    <li>Camposeco-Negrete, C. (2020) 'Optimization of FDM parameters for improving part quality, productivity and sustainability of the process using Taguchi methodology', <em>Progress in Additive Manufacturing</em>, 5, pp. 347–360. Available at: https://doi.org/10.1007/s40964-020-00135-9 (Accessed: 24 February 2026).</li>
+    <li>Montgomery, D. (2019) <em>Introduction to Statistical Quality Control</em>. 8th edn. Wiley. Available at: https://www.wiley.com/en-gb/Introduction+to+Statistical+Quality+Control%2C+8th+Edition-p-9781119657651 (Accessed: 24 February 2026).</li>
+    <li>Tofail, S., Koumoulos, E., Bandyopadhyay, A., Bose, S., O'Donoghue, L. and Charitidis, C. (2018) 'Additive manufacturing: scientific and technological challenges, market uptake and opportunities', <em>Materials Today</em>, 21(1), pp. 22–37. Available at: https://doi.org/10.1016/j.mattod.2017.07.001 (Accessed: 24 February 2026).</li>
+ </ol>
+
 </div>
 </article>
 
-
+    
     <!-- ── WEEK 5 ── -->
 <article class="post" id="week-5">
 <header class="post-header">
@@ -625,34 +626,35 @@
   <p class="post-date">3 March 2026</p>
 </header>
 
-<p>This week focused on two adjustments: pushing the middle extrude feature further into the tolerance window and refining the ironing settings. I changed the extrude depth in CAD from -2mm to 2.45mm to increase the feature size, and nudged the ironing from 50% speed 20% flow to 50% speed 21% flow. The surface finish came out noticeably smoother than last week.</p>
-
+<p>This week focused on two adjustments: pushing the middle extrude feature further into the tolerance window and refining the ironing settings. I changed the extrude depth in CAD from -2mm to 2.45mm to increase the feature size, and nudged the ironing from 50% speed 20% flow to 50% speed 21% flow. Turner et al. (2014) identify extrusion parameters as among the most sensitive variables in FDM, where small changes in flow rate and speed compound across layers to affect final part dimensions. The surface finish came out noticeably smoother than last week.</p>
 <figure style="margin-bottom: 2rem;">
   <img src="images/5phonecaseironing.jpeg" alt="Phone case top surface with ironing at 50% speed 21% flow" class="post-img" style="width:100%; height:auto;">
   <figcaption>Fig. 14 — Top surface finish with ironing at 50% speed and 21% flow, noticeably smoother than the previous iteration</figcaption>
 </figure>
 
 <p>The back of the casing was also messier this time around, with support removal leaving one streak.</p>
-
+  
 <figure style="margin-bottom: 2rem;">
   <img src="images/5phonecaseback.jpeg" alt="Back of phone case week 5" class="post-img" style="width:100%; height:auto;">
   <figcaption>Fig. 15 — Back of the bottom casing after support removal, week 5</figcaption>
 </figure>
 
-<p>The FESTO measurement told a different story though. The middle extrude feature came in at 2.19mm. The upper limit is 2.2mm, so it technically passes, but it is now sitting at the opposite end of the tolerance window from last week. Going from 1.69mm to 2.19mm in one iteration means the geometry change overcorrected. The tolerance window is 1.6–2.2mm, and the target should be somewhere near the middle of that at around 1.9mm. Right now the results are bouncing between the lower and upper boundaries rather than settling in the middle.</p>
-
+<p>The FESTO measurement told a different story though. The middle extrude feature came in at 2.19mm. The upper limit is 2.2mm, so it technically passes, but it is now sitting at the opposite end of the tolerance window from last week. Going from 1.69mm to 2.19mm in one iteration means the geometry change overcorrected. The tolerance window is 1.6–2.2mm, and the target should be somewhere near the middle at around 1.9mm. Dizon et al. (2018) note that geometric accuracy in FDM is sensitive to multiple interacting variables simultaneously, which makes isolating the cause of dimensional drift difficult without systematic testing. Right now the results are bouncing between the lower and upper boundaries rather than settling in the middle.</p>
 <figure style="margin-bottom: 2rem;">
   <img src="images/5festo.jpeg" alt="FESTO machine readings week 5" class="post-img" style="width:100%; height:auto;">
   <figcaption>Fig. 16 — FESTO CP lab measurement readings, week 5 — middle extrude feature at 2.19mm</figcaption>
 </figure>
 
-<p>The next step is a smaller geometry adjustment, pulling the extrude back slightly to bring the feature closer to the centre of the tolerance band. The ironing settings feel close to right now but i might tweak it a bit. I don't like how the ledge feature at the back of the bottom case looks with supports I might need to figure out a way to make a smoother finish there with custom supports.</p>
-
+<p>The next step is a smaller geometry adjustment, pulling the extrude back slightly to bring the feature closer to the centre of the tolerance band. The ironing settings feel close to right but I might tweak them slightly. I don't like how the ledge feature at the back of the bottom case looks with supports — I might need to figure out a way to make a smoother finish there with custom supports.</p>
 <div class="references">
   <h3>References</h3>
   <ol>
-    <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+    <li>Camposeco-Negrete, C. (2020) 'Optimization of FDM parameters for improving part quality, productivity and sustainability of the process using Taguchi methodology', <em>Progress in Additive Manufacturing</em>, 5, pp. 347–360. Available at: https://doi.org/10.1007/s40964-020-00135-9 (Accessed: 3 March 2026).</li>
+    <li>Dizon, J., Espera, A., Chen, Q. and Advincula, R. (2018) 'Mechanical characterization of 3D-printed polymers', <em>Additive Manufacturing</em>, 20, pp. 44–67. Available at: https://doi.org/10.1016/j.addma.2017.12.002 (Accessed: 3 March 2026).</li>
+    <li>Turner, B., Strong, R. and Gold, S. (2014) 'A review of melt extrusion additive manufacturing processes: I. Process design and modeling', <em>Rapid Prototyping Journal</em>, 20(3), pp. 192–204. Available at: https://doi.org/10.1108/RPJ-01-2013-0012 (Accessed: 3 March 2026).</li>
   </ol>
+
+
 </div>
 </article>
 
