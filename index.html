@@ -712,13 +712,13 @@
 
 <h3>Takt Time Analysis</h3>
 
-<p>The Takt Time Analysis calculates how fast the process needs to run to meet the 50,000 units per year target. With a single 8-hour shift, 5 days a week, 48 weeks a year, the scheduled run time is 480 minutes per day. Divided across 208 units of daily demand, the takt time works out to 138 seconds per phone casing. This is the heartbeat of the production system — every casing needs to be completed within 138 seconds to keep pace with demand. Slack et al. (2016) describe takt time as the fundamental link between customer demand and production rate, and it is this figure that determines how many printers are needed in the Tecnomatix simulation.</p>
+<p>The Takt Time Analysis calculates how fast the process needs to run to meet the 50,000 units per year target. The shift runs from 6:00 to 14:00 with breaks at 9:00-9:15 and 12:00-12:45, giving 420 minutes of effective production time per day rather than a full 480. Across 208 units of daily demand, the takt time works out to 121 seconds per phone casing. Slack et al. (2016) describe takt time as the fundamental link between customer demand and production rate, and it is this figure that determines how many printers are needed in the Tecnomatix simulation.</p>
 
-<p>The table also shows how takt time would change if demand grew — at 60,000 units per year the takt time drops to 115 seconds, at 70,000 it drops to 98 seconds. Each reduction puts more pressure on the process and would eventually require either additional printers or a second shift. That analysis feeds directly into the plant simulation work coming in the next few weeks.</p>
+<p>The table also shows how takt time would change if demand grew — at 60,000 units per year the takt time drops to 100.8 seconds, at 70,000 it drops to 86.4 seconds. Each reduction puts more pressure on the process and would eventually require either additional printers or a second shift. That analysis feeds directly into the plant simulation work coming in the next few weeks.</p>
 
 <figure style="margin-bottom: 2rem;">
-  <img src="images/6TAKTtimeanalysis.png" alt="Takt Time Analysis showing 138 seconds per unit at 50,000 annual volume" class="post-img" style="width:100%; height:auto;">
-  <figcaption>Fig. 22 — Takt Time Analysis — 138 seconds per phone casing at 50,000 units per year on a single shift</figcaption>
+  <img src="images/6TAKTtimeanalysis.png" alt="Takt Time Analysis showing 121 seconds per unit at 50,000 annual volume" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 22 — Takt Time Analysis — 121 seconds per phone casing at 50,000 units per year on a single 7-hour shift (420 minutes effective production time)</figcaption>
 </figure>
 
 <div class="references">
@@ -741,13 +741,13 @@
   <p class="post-date">17 March 2026</p>
 </header>
 
-<p>This week shifted focus entirely away from physical manufacturing and into digital simulation. The goal for the next two weeks is to build a plant simulation of the Phones-R-Us assembly process in Tecnomatix Plant Simulation and prove whether the process can hit 50,000 phone casings per year. Before touching the simulation software, I completed the Value Stream Map to document the current state of the process — where time is spent, where the bottleneck sits, and what the takt time actually is once shift breaks are accounted for.</p>
+<p>This week shifted focus entirely away from physical manufacturing and into digital simulation. The goal for the next two weeks is to build a plant simulation of the Phones-R-Us assembly process in Tecnomatix Plant Simulation and prove whether the process can hit 50,000 phone casings per year. Before getting into the simulation software, I completed the Value Stream Map to document the current state of the process, where time is spent, where the bottleneck sits, and what the takt time actually is once shift breaks are accounted for.</p>
 
 <h3>Value Stream Map</h3>
 
-<p>The Value Stream Map captures the full material and information flow from the filament supplier through to the finished phone casing. The process runs as a push system — production runs continuously during shift hours rather than being triggered by individual orders. With a single shift running from 6:00 to 14:00, minus breaks at 9:00-9:15 and 12:00-12:45, the effective working time per day is 420 minutes rather than the full 480. This brings the takt time to 121 seconds per unit at 50,000 units per year — slightly tighter than the 138 seconds calculated earlier based on a full 480 minute day. Rother and Shook (2003) describe the value stream map as an essential tool for identifying waste and understanding where the real constraints in a system lie, and mapping the process made the bottleneck immediately obvious.</p>
+<p>The Value Stream Map captures the full material and information flow from the filament supplier through to the finished phone casing. The process runs as a push system, production runs continuously during shift hours rather than being triggered by individual orders. With a single shift running from 6:00 to 14:00, minus breaks at 9:00-9:15 and 12:00-12:45, the effective working time per day is 420 minutes rather than the full 480. This brings the takt time to 121 seconds per unit at 50,000 units per year. Rother and Shook (2003) describe the value stream map as an essential tool for identifying waste and understanding where the real constraints in a system lie, and mapping the process made the bottleneck immediately obvious.</p>
 
-<p>The 3D printing step at 110 minutes per casing set is the system bottleneck — not the FESTO assembly line. The FESTO line cycles at 29 seconds per phone (governed by the oven station), which means it can assemble phones far faster than the printers can supply casings. The constraint is upstream, in the additive manufacturing step. This is the core insight that drives the printer quantity calculation in week 8.</p>
+<p>The 3D printing step at 110 minutes per casing set is the system bottleneck, not the FESTO assembly line. The FESTO line cycles at 29 seconds per phone (governed by the oven station), which means it can assemble phones far faster than the printers can supply casings. The constraint is upstream, in the additive manufacturing step. This is the core insight that drives the printer quantity calculation in week 8.</p>
 
 <figure style="margin-bottom: 2rem;">
   <img src="images/7VSM.png" alt="Value Stream Map for Phones-R-Us phone casing manufacture" class="post-img" style="width:100%; height:auto;">
@@ -756,7 +756,7 @@
 
 <h3>Setting up the simulation</h3>
 
-<p>The Tecnomatix model replicates the six FESTO CP lab stations — FrontMagStation, MeasuringStation, PickByLightStation, PressStation, OvenStation, and OutputStation — connected by conveyors in the same sequence as the physical lab. Each station was configured with its measured processing time. This week's build was an initial test run without the additive manufacturing machine included — parts were fed directly from a source into the first FESTO station to verify the station times and conveyor logic were working correctly before adding the printer model.</p>
+<p>The Tecnomatix model replicates the six FESTO CP lab stations, FrontMagStation, MeasuringStation, PickByLightStation, PressStation, OvenStation, and OutputStation all connected by conveyors in the same sequence as the physical lab. Each station was configured with its measured processing time. This week's build was an initial test run without the additive manufacturing machine included, parts were fed directly from a source into the first FESTO station to verify the station times and conveyor logic were working correctly before adding the printer model.</p>
 
 <figure style="margin-bottom: 2rem;">
   <img src="images/7fullmodel.png" alt="Tecnomatix model test run showing FESTO stations" class="post-img" style="width:100%; height:auto;">
@@ -790,7 +790,7 @@
   <figcaption>Fig. 25 — Tecnomatix resource statistics from the initial test run — OvenStation at 99.95% working time confirms it as the FESTO line bottleneck</figcaption>
 </figure>
 
-<p>The resource statistics from the test run confirmed what the station times already suggested — the OvenStation ran at 99.95% working time, making it the bottleneck within the FESTO line. Every other station spent significant time blocked or waiting. This is consistent with the takt time analysis and the value stream map. Next week the additive manufacturing machine will be added to the model and the printer quantity experiment will be run to find how many printers are needed to hit 50,000 units per year.</p>
+<p>The resource statistics from the test run confirmed what the station times already suggested, the OvenStation ran at 99.95% working time, making it the bottleneck within the FESTO line. Every other station spent significant time blocked or waiting. This is consistent with the takt time analysis and the value stream map. Next week the additive manufacturing machine will be added to the model and the printer quantity experiment will be run to find how many printers are needed to hit 50,000 units per year.</p>
 
 <div class="references">
   <h3>References</h3>
@@ -809,11 +809,11 @@
   <p class="post-date">24 March 2026</p>
 </header>
 
-<p>This week the additive manufacturing machine was added to the Tecnomatix model and the experiment manager was used to find the minimum number of printers needed to hit the 50,000 unit annual target. The simulation ran for a full year — 365 days — on a single shift from 6:00 to 14:00 with breaks at 9:00-9:15 and 12:00-12:45, giving 420 minutes of effective production time per day.</p>
+<p>This week the additive manufacturing machine was added to the Tecnomatix model and the experiment manager was used to find the minimum number of printers needed to hit the 50,000 unit annual target. The simulation ran for a full year, 365 days, on a single shift from 6:00 to 14:00 with breaks at 9:00-9:15 and 12:00-12:45, giving 420 minutes of effective production time per day.</p>
 
 <h3>Model setup</h3>
 
-<p>The additive manufacturing machine was modelled as an array — a grid of printers working in parallel, each with a processing time of 1 hour 50 minutes per casing set. The array was set with a fixed width of 8 printers and the experiment manager varied the number of rows from 4 to 8, testing configurations of 32, 40, 48, 56, and 64 printers. Mourtzis et al. (2014) describe simulation-based optimisation as a core method for determining production capacity in digital manufacturing environments, and this is exactly the approach taken here — running multiple scenarios to find the configuration that meets demand.</p>
+<p>The additive manufacturing machine was modelled as an array, a grid of printers working in parallel, each with a processing time of 1 hour 50 minutes per casing set. The array was set with a fixed width of 8 printers and the experiment manager varied the number of rows from 4 to 8, testing configurations of 32, 40, 48, 56, and 64 printers. Mourtzis et al. (2014) describe simulation-based optimisation as a core method for determining production capacity in digital manufacturing environments, and this is exactly the approach taken here, running multiple scenarios to find the configuration that meets demand.</p>
 
 <figure style="margin-bottom: 2rem;">
   <img src="images/8fullmodel.png" alt="Full Tecnomatix model running at 365 days showing 52416 parts output" class="post-img" style="width:100%; height:auto;">
@@ -832,7 +832,7 @@
 
 <h3>Experiment manager results</h3>
 
-<p>The experiment manager tested five printer array configurations against the 50,000 unit target. The results were clear — 64 printers in an 8x8 array produced 52,416 parts over the year, the only configuration to exceed the 50,000 target. Every smaller configuration fell short.</p>
+<p>The experiment manager tested five printer array configurations against the 50,000 unit target. The results showed that 64 printers in an 8x8 array produced 52,416 parts over the year, the only configuration to exceed the 50,000 target. Every smaller configuration fell short.</p>
 
 <div class="print-params">
   <h3>Experiment manager results</h3>
@@ -863,7 +863,7 @@
 
 <h3>Resource statistics</h3>
 
-<p>The resource statistics chart shows that all six FESTO stations spend the majority of their time in an unplanned state — the light blue segment — which represents time outside shift hours. During actual shift time the stations are active, but because the shift is only 7 hours out of a 24-hour day, the stations appear heavily underutilised in percentage terms. This is expected and not a problem — it confirms that the FESTO line is not the constraint. The constraint is the printer array, which runs at 17.14% working time in the final 8x8 configuration, meaning the printers are working for roughly 1 hour 10 minutes out of every 7-hour shift on average per unit cycle. The FESTO line can absorb whatever the printers produce.</p>
+<p>The resource statistics chart shows that all six FESTO stations spend the majority of their time in an unplanned state, the light blue segment, which represents time outside shift hours. During actual shift time the stations are active, but because the shift is only 7 hours out of a 24-hour day, the stations appear heavily underutilised in percentage terms. This is expected and not a problem, it confirms that the FESTO line is not the constraint. The constraint is the printer array, which runs at 17.14% working time in the final 8x8 configuration, meaning the printers are working for roughly 1 hour 10 minutes out of every 7-hour shift on average per unit cycle. The FESTO line can absorb whatever the printers produce.</p>
 
 <figure style="margin-bottom: 2rem;">
   <img src="images/8resourcestatistics.png" alt="Resource statistics bar chart showing station utilisation" class="post-img" style="width:100%; height:auto;">
@@ -895,18 +895,18 @@
   <p class="post-date">31 March 2026</p>
 </header>
 
-<p>Nine weeks in, the project is complete. The brief asked for a casing that fits the master part, passes the FESTO assembly line, and can scale to 50,000 units a year. All three boxes are ticked — the final print measured 1.89mm on the middle extrude feature, well within the 1.6-2.2mm tolerance window, and the simulation confirmed that 64 Bambu Labs P1S printers running a single 7-hour shift can produce 52,416 casings per year. This section reflects on what the process taught me across four areas the brief specifically asks about.</p>
+<p>Nine weeks in, the project is complete. The brief asked for a casing that fits the master part, passes the FESTO assembly line, and can scale to 50,000 units a year. All three goals have been achieved, the final print measured 1.89mm on the middle extrude feature, well within the 1.6-2.2mm tolerance window, and the simulation confirmed that 64 Bambu Labs P1S printers running a single 7-hour shift can produce 52,416 casings per year. This section reflects on what the process taught me across four areas the brief specifically asks about.</p>
 
 <h3>3D printing and digital manufacturing</h3>
 
-<p>The iteration process across six weeks showed that additive manufacturing gives you speed but not automatic accuracy. Getting a part to print is straightforward. Getting it to print to tolerance, with a consistent surface finish, and with clean support removal, took five rounds of adjustment. The final combination — 0.2mm layer height, 15% gyroid infill, ironing at 50% speed and 23% flow, and a PETG support interface — only emerged through systematic parameter changes logged week by week. Without that documentation, there would be no way to reproduce the result reliably.</p>
+<p>The iteration process across six weeks showed that additive manufacturing gives you speed but not automatic accuracy. Getting a part to print is straightforward. Getting it to print to tolerance, with a consistent surface finish, and with clean support removal, took five rounds of adjustment. The final combination, 0.2mm layer height, 15% gyroid infill, ironing at 50% speed and 23% flow, and a PETG support interface, only emerged through systematic parameter changes logged week by week. Without that documentation, there would be no way to reproduce the result reliably.</p>
 
 <h3>Measuring parts and assembly challenges</h3>
 
-<p>The FESTO CP lab measuring station turned out to be the most useful feedback tool in the process. The middle extrude feature went from 1.69mm in week 4 to 2.19mm in week 5 before landing at 1.89mm in week 6 — a range of 0.5mm across three iterations driven by CAD geometry changes of less than half a millimetre. That sensitivity is what makes process capability difficult in additive manufacturing. A single passing result does not prove the process is capable. Montgomery (2019) defines process capability as consistent output within specification across multiple runs, and achieving that would require printing and measuring many more parts than the scope of this project allowed.</p>
+<p>The FESTO CP lab measuring station turned out to be the most useful feedback tool in the process. The middle extrude feature went from 1.69mm in week 4 to 2.19mm in week 5 before landing at 1.89mm in week 6, a range of 0.5mm across three iterations driven by CAD geometry changes of less than half a millimetre. That sensitivity is what makes process capability difficult in additive manufacturing. A single passing result does not prove the process is capable. Montgomery (2019) defines process capability as consistent output within specification across multiple runs, and achieving that would require printing and measuring many more parts than the scope of this project allowed.</p>
 
 <figure style="margin-bottom: 2rem;">
-  <img src="images/[final-assembled-casing].png" alt="Final assembled phone casing — top and bottom snapped together" class="post-img" style="width:100%; height:auto;">
+  <img src="images/finalassembledcasing.png" alt="Final assembled phone casing — top and bottom snapped together" class="post-img" style="width:100%; height:auto;">
   <figcaption>Fig. 32 — Final assembled phone casing — top and bottom case snapped together, ready for FESTO line testing</figcaption>
 </figure>
 
@@ -916,11 +916,11 @@
 
 <h3>Benefit of plant simulation</h3>
 
-<p>The Tecnomatix simulation was the clearest demonstration of Industry 4.0 value in this project. Without it, estimating how many printers are needed to hit 50,000 units would have required guesswork or complex manual calculation. With it, five experiments across different array configurations produced a definitive answer in minutes. Mourtzis et al. (2014) argue that simulation is now an essential tool for production planning precisely because it removes the cost and time of physical trial and error. The finding that 64 printers are needed — not the 80 initially estimated — also shows that simulation can correct overestimates and prevent unnecessary capital expenditure.</p>
+<p>The Tecnomatix simulation was the clearest demonstration of Industry 4.0 value in this project. Without it, estimating how many printers are needed to hit 50,000 units would have required guesswork or complex manual calculation. With it, five experiments across different array configurations produced a definitive answer in minutes. Mourtzis et al. (2014) argue that simulation is now an essential tool for production planning precisely because it removes the cost and time of physical trial and error. The finding that 64 printers are needed, not the 80 initially estimated, also shows that simulation can correct overestimates and prevent unnecessary capital expenditure.</p>
 
 <h3>Sustainability and lifecycle considerations</h3>
 
-<p>FDM printing with PLA has a lower material waste profile than injection moulding — you print only what you need, with no runners, sprues, or tooling scrap. PLA is also compostable under industrial conditions, making end-of-life disposal less environmentally damaging than ABS or polycarbonate alternatives. However, running 64 printers continuously across a 7-hour shift carries a significant energy footprint at scale, and that cost grows linearly with printer count. A lifecycle assessment comparing the total energy consumption of 64 FDM printers against a single injection moulding tool producing the same annual volume would be a meaningful next step. Gebler et al. (2014) estimate that additive manufacturing has the potential to reduce global energy use and CO₂ emissions in manufacturing, but only where it genuinely replaces high-waste conventional processes rather than supplementing them. For low-volume, high-mix production like this project, the case for FDM is strong. At 50,000 units per year and above, injection moulding begins to close the gap.</p>
+<p>FDM printing with PLA has a lower material waste profile than injection moulding, you print only what you need, with no runners, sprues, or tooling scrap. PLA is also compostable under industrial conditions, making end-of-life disposal less environmentally damaging than ABS or polycarbonate alternatives. However, running 64 printers continuously across a 7-hour shift carries a significant energy footprint at scale, and that cost grows linearly with printer count. A lifecycle assessment comparing the total energy consumption of 64 FDM printers against a single injection moulding tool producing the same annual volume would be a meaningful next step. Gebler et al. (2014) estimate that additive manufacturing has the potential to reduce global energy use and CO₂ emissions in manufacturing, but only where it genuinely replaces high-waste conventional processes rather than supplementing them. For low-volume, high-mix production like this project, the case for FDM is strong. At 50,000 units per year and above, injection moulding begins to close the gap.</p>
 
 <div class="references">
   <h3>References</h3>
