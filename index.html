@@ -577,46 +577,44 @@
     </article>
 
     <!-- ── WEEK 4 ── -->
-    <article class="post" id="week-4">
-      <header class="post-header">
-        <p class="post-week">Week 4</p>
-        <h2>Metrology &amp; the FESTO Measuring Station</h2>
-        <p class="post-date">24 February 2026</p>
-      </header>
 
-      <p>This week the casing went through the FESTO CP lab for the first time. The lab replicates the Phones-R-Us assembly process across six stations: the measuring station is Station 5, and it checks one critical dimension on the bottom casing automatically. The lower control limit for this dimension is 1.6mm, the upper control limit is 2.2mm. My part measured 1.9mm and passed. Seeing the part flow through all six stations without fault was a significant milestone, confirming that the print process is currently within tolerance.</p>
+  <article class="post" id="week-4">
+<header class="post-header">
+  <p class="post-week">Week 4</p>
+  <h2>Measurement &amp; Process Capability</h2>
+  <p class="post-date">24 February 2026</p>
+</header>
 
-      <p>Before the FESTO test, I carried out manual metrology on several prints from the same batch using digital callipers and a surface plate. The measurements showed variation between parts of up to 0.12mm on the critical dimension. This is within the tolerance band, but the spread is wide enough that if the process drifts in either direction, parts will start failing the automated check at Station 5. Understanding this variation is part of what makes process capability analysis meaningful: a single passing part does not confirm a capable process.</p>
+<p>This week moved away from printing and into measurement. The casings were tested on the FESTO CP lab assembly line to check how they perform in a real production context. The machine gives you an immediate sense of whether your part is within tolerance — not just dimensionally, but functionally. For this iteration I ran ironing at 50% speed and 20% flow, a slight adjustment from last week's 60% speed setting.</p>
 
-      <p>Scanning technology offers a more complete picture of part geometry than spot measurement with callipers. A full surface scan produces a deviation map that shows where the printed geometry diverges from the CAD nominal across the entire part. [Placeholder: Add notes on any scanning work carried out this week, which scanner was used, and what the deviation map showed.] This kind of data is what separates a qualified manufacturing process from one that is merely producing passing parts on the day.</p>
+<figure style="margin-bottom: 2rem;">
+  <img src="images/4festo.png" alt="FESTO machine with measurement readings" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 11 — FESTO CP lab measurement readings for the phone casing</figcaption>
+</figure>
 
-      <p>The FESTO lab also made visible how the casing interacts with the assembly line tooling. The gripper at the pick station, the press tool at Station 3, and the conveyor between stations all place different mechanical demands on the part. A casing that passes dimensional inspection can still fail on the line if its geometry creates problems for automated handling. Observing the full cycle gave me a clearer picture of where the design margins are genuinely tight.</p>
+<p>The middle extrude feature came in at 1.69mm. The drawing specifies a limit of 1.6–2.2mm, so it passes, but it is sitting close to the lower boundary. In a production context that margin is uncomfortable. Any small shift in ironing settings — flow rate, speed, or even filament batch variation — could push that dimension below 1.6mm and cause a failure on the line. The fact that ironing directly affects this surface means the settings I'm still tweaking are not just cosmetic. They have a direct impact on whether the part is within tolerance.</p>
 
-      <div class="placeholder video">
-        <span class="ph-icon">🎥</span>
-        <strong>[ Photo / Video: Casing on the FESTO CP lab line ]</strong><br>Add your image or video embed here. Suggested: casing moving through Station 5 (measuring station) or a short clip of the full 6-station cycle.
-      </div>
+<figure style="margin-bottom: 2rem;">
+  <img src="images/4phonecaseironing.png" alt="Phone case top surface with ironing at 50% speed 20% flow" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 12 — Top surface finish with ironing at 50% speed and 20% flow</figcaption>
+</figure>
 
-      <div class="inset">
-        <h4>Print Progress This Week</h4>
-        <div class="placeholder">
-          <span class="ph-icon">📸</span>
-          <strong>[ Photo: This week's print ]</strong>
-        </div>
-        <p>[Setting changed this week: e.g. Layer height adjusted from 0.2mm to 0.15mm.] &nbsp;[Result: e.g. Improved dimensional accuracy on the critical side-wall feature.]</p>
-      </div>
+<p>The back of the casing still required supports for the ledge feature. Removal was cleaner this time compared to the Prusa print in Week 2, but there is still some surface marking left behind. This remains something to address in the next iteration.</p>
 
-      <div class="references">
-        <h3>References</h3>
-        <ol>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-        </ol>
-      </div>
-    </article>
+<figure style="margin-bottom: 2rem;">
+  <img src="images/4phonecaseback.png" alt="Back of phone case showing support marks" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 13 — Back of the bottom casing after support removal</figcaption>
+</figure>
 
-     
+<p>This is where process capability becomes relevant. Passing one print is not the same as proving the process is capable. To have confidence in the 1.69mm result, I would need to print multiple parts under the same conditions and measure the variation across them. If the spread of results sits comfortably within the 1.6–2.2mm window, the process is capable. If results cluster near 1.69mm with any meaningful variance, the lower limit becomes a real risk. That is the next step — running repeated prints with locked ironing settings and measuring the consistency.</p>
+
+<div class="references">
+  <h3>References</h3>
+  <ol>
+    <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+  </ol>
+</div>
+</article>
 
 
     <!-- ── WEEK 5 ── -->
