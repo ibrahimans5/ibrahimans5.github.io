@@ -585,14 +585,14 @@
   <p class="post-date">24 February 2026</p>
 </header>
 
-<p>This week moved away from printing and into measurement. The casings were tested on the FESTO CP lab assembly line to check how they perform in a real production context. The machine gives you an immediate sense of whether your part is within tolerance — not just dimensionally, but functionally. For this iteration I ran ironing at 50% speed and 20% flow, a slight adjustment from last week's 60% speed setting.</p>
+<p>This week moved away from printing and into measurement. The casings were tested on the FESTO CP lab assembly line to check how they perform in a real production context. The machine gives you an immediate reading of whether your part is within tolerance. For this iteration I ran ironing at 50% speed and 20% flow, a slight adjustment from last week's 60% speed setting. The inner surface looks much better than last week. I also ran my previous week's parts on the festo machine to see the tolerence on those as well.</p>
 
 <figure style="margin-bottom: 2rem;">
   <img src="images/4festo.png" alt="FESTO machine with measurement readings" class="post-img" style="width:100%; height:auto;">
   <figcaption>Fig. 11 — FESTO CP lab measurement readings for the phone casing</figcaption>
 </figure>
 
-<p>The middle extrude feature came in at 1.69mm. The drawing specifies a limit of 1.6–2.2mm, so it passes, but it is sitting close to the lower boundary. In a production context that margin is uncomfortable. Any small shift in ironing settings — flow rate, speed, or even filament batch variation — could push that dimension below 1.6mm and cause a failure on the line. The fact that ironing directly affects this surface means the settings I'm still tweaking are not just cosmetic. They have a direct impact on whether the part is within tolerance.</p>
+<p>The middle extrude feature came in at 1.69mm. The tolerence specifies a limit of 1.6–2.2mm, so it passes, but it is sitting close to the lower boundary for comfort. In a production context that margin is uncomfortable. A small shift in ironing settings, flow rate, speed, or even filament batch variation, could push that dimension below 1.6mm and cause a failure on the line. The fact that ironing directly affects this surface means the print parameters have a direct impact on whether the part is within tolerance.</p>
 
 <figure style="margin-bottom: 2rem;">
   <img src="images/4phonecaseironing.png" alt="Phone case top surface with ironing at 50% speed 20% flow" class="post-img" style="width:100%; height:auto;">
@@ -606,7 +606,7 @@
   <figcaption>Fig. 13 — Back of the bottom casing after support removal</figcaption>
 </figure>
 
-<p>This is where process capability becomes relevant. Passing one print is not the same as proving the process is capable. To have confidence in the 1.69mm result, I would need to print multiple parts under the same conditions and measure the variation across them. If the spread of results sits comfortably within the 1.6–2.2mm window, the process is capable. If results cluster near 1.69mm with any meaningful variance, the lower limit becomes a real risk. That is the next step — running repeated prints with locked ironing settings and measuring the consistency.</p>
+<p>This is where process capability becomes relevant. Passing one print is not the same as proving the process is capable. To have confidence in the 1.69mm result, I would need to print multiple parts under the same conditions and measure the variation across them. If the spread of results sits comfortably within the 1.6–2.2mm window, the process is capable. If results cluster near 1.69mm with any meaningful variance, the lower limit becomes a real risk. The next step is running repeated prints with locked ironing settings and measuring the consistency.</p>
 
 <div class="references">
   <h3>References</h3>
@@ -618,50 +618,43 @@
 
 
     <!-- ── WEEK 5 ── -->
-    <article class="post" id="week-5">
-      <header class="post-header">
-        <p class="post-week">Week 5</p>
-        <h2>Print Iteration — Ironing &amp; Surface Finish</h2>
-        <p class="post-date">3 March 2026</p>
-      </header>
+<article class="post" id="week-5">
+<header class="post-header">
+  <p class="post-week">Week 5</p>
+  <h2>Iteration — Geometry &amp; Surface Finish</h2>
+  <p class="post-date">3 March 2026</p>
+</header>
 
-      <p>Surface finish became a priority this week. The top casing has a large flat face that is visible and tactile in the assembled phone, and previous prints showed visible layer lines across it. I enabled the ironing setting in the slicer, which causes the nozzle to make an additional slow pass over the top surface with reduced flow, effectively pressing down the peaks of the deposited material. The difference was visible immediately on the first ironed print.</p>
+<p>This week focused on two adjustments: pushing the middle extrude feature further into the tolerance window and refining the ironing settings. I changed the extrude depth in CAD from -2mm to 2.45mm to increase the feature size, and nudged the ironing from 50% speed 20% flow to 50% speed 21% flow. The surface finish came out noticeably smoother than last week.</p>
 
-      <p>Ironing adds time to each print. For the top casing, enabling ironing at a 0.1mm line spacing and 15% flow rate added approximately [X] minutes to a print that previously took [Y] minutes. Whether that trade-off is acceptable depends on the production context: in a batch-production scenario targeting 50,000 units per year, print time per part is a direct input to the capacity calculation in the plant simulation. Any increase in cycle time either requires more printers or reduces achievable volume.</p>
+<figure style="margin-bottom: 2rem;">
+  <img src="images/5phonecaseironing.jpeg" alt="Phone case top surface with ironing at 50% speed 21% flow" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 14 — Top surface finish with ironing at 50% speed and 21% flow, noticeably smoother than the previous iteration</figcaption>
+</figure>
 
-      <div class="placeholder-row">
-        <div class="placeholder tall">
-          <span class="ph-icon">🔲</span>
-          <strong>[ Photo: Before ironing ]</strong><br>Top surface without ironing — layer lines visible.
-        </div>
-        <div class="placeholder tall">
-          <span class="ph-icon">✨</span>
-          <strong>[ Photo: After ironing ]</strong><br>Top surface with ironing enabled — smoother finish.
-        </div>
-      </div>
+<p>The back of the casing was also messier this time around, with support removal leaving one streak.</p>
 
-      <p>Surface quality also affects how the casing performs on the FESTO assembly line. The press station applies a controlled force to seat a component into the casing. If the mating surface is uneven due to layer lines, the seating depth can vary between parts, introducing inconsistency downstream. A smoother top surface reduces this source of variation. This is an example of a print parameter decision that has consequences beyond aesthetics.</p>
+<figure style="margin-bottom: 2rem;">
+  <img src="images/5phonecaseback.jpeg" alt="Back of phone case week 5" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 15 — Back of the bottom casing after support removal, week 5</figcaption>
+</figure>
 
-      <p>[Placeholder: Add your own observations on the ironing results. For example — the ironed surface showed a 40% reduction in measured Ra surface roughness compared to the non-ironed print, measured using the lab's contact profilometer. The visual improvement was significant, but the tactile improvement was more modest than expected. Further trials with adjusted flow rate are planned.]</p>
+<p>The FESTO measurement told a different story though. The middle extrude feature came in at 2.19mm. The upper limit is 2.2mm, so it technically passes, but it is now sitting at the opposite end of the tolerance window from last week. Going from 1.69mm to 2.19mm in one iteration means the geometry change overcorrected. The tolerance window is 1.6–2.2mm, and the target should be somewhere near the middle of that at around 1.9mm. Right now the results are bouncing between the lower and upper boundaries rather than settling in the middle.</p>
 
-      <div class="inset">
-        <h4>FESTO Test This Week</h4>
-        <div class="placeholder">
-          <span class="ph-icon">🏭</span>
-          <strong>[ Photo: FESTO test this week ]</strong>
-        </div>
-        <p>[Note: e.g. Ironed top casing passed all six stations. Press station seating depth was consistent across three consecutive test cycles.]</p>
-      </div>
+<figure style="margin-bottom: 2rem;">
+  <img src="images/5festo.jpeg" alt="FESTO machine readings week 5" class="post-img" style="width:100%; height:auto;">
+  <figcaption>Fig. 16 — FESTO CP lab measurement readings, week 5 — middle extrude feature at 2.19mm</figcaption>
+</figure>
 
-      <div class="references">
-        <h3>References</h3>
-        <ol>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-          <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
-        </ol>
-      </div>
-    </article>
+<p>The next step is a smaller geometry adjustment, pulling the extrude back slightly to bring the feature closer to the centre of the tolerance band. The ironing settings feel close to right now but i might tweak it a bit. I don't like how the ledge feature at the back of the bottom case looks with supports i might need to figure out a way to make a smoother finish there with custom supports</p>
+
+<div class="references">
+  <h3>References</h3>
+  <ol>
+    <li>[Author Surname, Initial.] ([Year]) <em>[Title of source]</em>. [Publisher / Journal]. Available at: [URL] (Accessed: [Date]).</li>
+  </ol>
+</div>
+</article>
 
     <!-- ── WEEK 6 ── -->
     <article class="post" id="week-6">
